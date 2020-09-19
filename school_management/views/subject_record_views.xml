@@ -42,7 +42,7 @@
         <record model="ir.actions.act_window" id="action_view_subjects">
             <field name="name">Subject</field>
             <field name="res_model">subject.record</field>
-            <field name="view_type">form</field>
+           <!--  <field name="view_type">form</field> -->
             <field name="view_mode">tree,form</field>
             <field name="domain">[]</field>
             <field name="help" type="html">
