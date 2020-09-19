@@ -6,10 +6,10 @@
     'author': "Aktiv software",
     'website': "http://www.aktivesoftware.com",
     'category': 'Tooles',
-    'version': '11.0.1.0.0',
+    'version': '12.0.1.0.0',
     'depends': ['base'],
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/student_record_views.xml',
         'views/profesor_record_views.xml',
         'views/subject_record_views.xml',
