@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Tree view -->
+        <record id="profesor_record_tree_view" model="ir.ui.view">
+            <field name="name">Profesor</field>
+            <field name="model">profesor.record</field>
+            <!-- <field name="priority" eval="8" />-->
+            <field name="arch" type="xml">
+                <tree string="Student">
+                    <field name="profesor_name" />
+                    <field name="profesor_department" />
+                    <field name="profesor_subject" />
+                    <field name="profesor_age"/>
+                    <field name="profesor_email" />
+                    <field name="profesor_phone_number"/>
+                    <field name="profesor_dob"/>
+                    <field name="profesor_blood_group"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Form view -->
+        <record id="profesor_record_form_view" model="ir.ui.view">
+            <field name="name">Profesor</field>
+            <field name="model">profesor.record</field>
+<!-- <field name="priority" eval="8" />-->
+            <field name="arch" type="xml">
+                <form string="Student">
+                    <sheet>
+                        
+                        <div class="oe_title">
+                            <group>
+                                <group>
+                                    <field name="profesor_name"/>
+                                    <field name="profesor_department"/>
+                                    <field name="profesor_subject"/>
+                                    <field name="profesor_age"/>
+                                </group>
+                                <group>
+                                    <field name="profesor_email"/>
+                                    <field name="profesor_phone_number"/>
+                                    <field name="profesor_gender"/>
+                                    <field name="profesor_dob"/>
+                                    <field name="profesor_blood_group"/>
+                                </group>
+                            </group>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Menu -->
+        <record model="ir.actions.act_window" id="action_view_profesor">
+            <field name="name">Profesor</field>
+            <field name="res_model">profesor.record</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create new Profesor
+                </p>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <menuitem id="menu_school" name="School"/>
+        <menuitem id="school_profesor" name="Profesor" parent="menu_school" action="action_view_profesor"/>
+    </data>
+</odoo>
+
+
+
