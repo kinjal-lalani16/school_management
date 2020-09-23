@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record model="ir.ui.view" id="product_form_view_sale_order_button">
+        <field name="name">product.product.sale.order</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+        	<xpath expr="//field[@name='type']" position="after">
+    			<field name="product_short_name" />
+        	</xpath>
+        	<xpath expr="//form/sheet/notebook/page[2]" position="inside">
+				<label for='product_description' string="Product Description:"/><br/>
+				<field name="product_description"/>
+			</xpath>
+			<xpath expr="//field[@name='barcode']" position="attributes">
+				<attribute name="readonly">False</attribute>
+			</xpath>
+			<!-- <xpath expr="//field[@name='barcode']" position="before">
+				<field name="product_short_name"/>
+			</xpath>
+			<xpath expr="//field[@name='standard_price']" position="replace">
+				<field name="product_short_name"/>
+			</xpath>
+			 -->
+    	</field>
+    </record>
+</odoo>
