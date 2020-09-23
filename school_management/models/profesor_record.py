@@ -1,7 +1,7 @@
 from odoo import models, fields
 
 
-class profesorRecord(models.Model):
+class ProfesorRecord(models.Model):
 	_name = "profesor.record"
 
 	profesor_name = fields.Char(string="Professor Name",required=True)

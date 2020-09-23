@@ -25,7 +25,7 @@
         <record id="profesor_record_form_view" model="ir.ui.view">
             <field name="name">Profesor</field>
             <field name="model">profesor.record</field>
-<!-- <field name="priority" eval="8" />-->
+            <!-- <field name="priority" eval="8" />-->
             <field name="arch" type="xml">
                 <form string="Student">
                     <sheet>

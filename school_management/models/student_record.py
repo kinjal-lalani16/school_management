@@ -2,6 +2,7 @@
 
 from odoo import models, fields, api
 
+
 class StudentRecord(models.Model):
 
     _name = 'student.record'
