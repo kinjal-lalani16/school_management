@@ -2,3 +2,5 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_student_record,access.student.record,model_student_record,base.group_user,1,1,1,0
 access_profesor_record,access.profesor.record,model_profesor_record,base.group_user,1,1,1,0
 access_subject_record,access.subject.record,model_subject_record,base.group_user,1,1,1,0
+access_sale_order,access.sale.order,model_sale_order,base.group_user,1,1,1,0
+access_product_product,access.product.product,model_product_product,base.group_user,1,1,1,0
