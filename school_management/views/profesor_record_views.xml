@@ -15,6 +15,7 @@
                     <field name="profesor_phone_number"/>
                     <field name="profesor_dob"/>
                     <field name="student_ids"/>
+                    <field name="subject_id"/>
                     <field name="profesor_blood_group"/>
                 </tree>
             </field>
@@ -47,7 +48,26 @@
                                 </group>
                             </group>
                             <group>
-                                <field name="student_ids"/>
+                                <notebook>
+                                    <page string="Student list" name="student_list">
+                                        <field name="student_ids">
+                                            <tree editable="bottom">
+                                                <field name="student_name"/>
+                                                <field name="last_name"/>
+                                                <field name="student_age"/>
+                                                <field name="student_gender"/>
+                                            </tree>
+                                            <form>
+                                                <group>
+                                                    <field name="student_name"/>
+                                                    <field name="last_name"/>
+                                                    <field name="student_age"/>
+                                                    <field name="student_gender"/>
+                                                </group>
+                                            </form>
+                                        </field>
+                                    </page>
+                                </notebook>
                             </group>
                         </div>
                     </sheet>

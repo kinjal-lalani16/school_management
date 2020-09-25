@@ -18,6 +18,7 @@
         'views/subject_record_views.xml',
         'views/product_product_views.xml',
         'views/sale_order_views.xml',
+        'wizard/date_wizard_view.xml',
         #'views/templates.xml',
     ],
    
