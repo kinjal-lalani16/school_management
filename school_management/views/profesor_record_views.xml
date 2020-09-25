@@ -10,11 +10,11 @@
                 <tree string="Student">
                     <field name="profesor_name" />
                     <field name="profesor_department" />
-                    <field name="profesor_subject" />
                     <field name="profesor_age"/>
                     <field name="profesor_email" />
                     <field name="profesor_phone_number"/>
                     <field name="profesor_dob"/>
+                    <field name="student_ids"/>
                     <field name="profesor_blood_group"/>
                 </tree>
             </field>
@@ -35,8 +35,8 @@
                                 <group>
                                     <field name="profesor_name"/>
                                     <field name="profesor_department"/>
-                                    <field name="profesor_subject"/>
                                     <field name="profesor_age"/>
+                                    <field name="subject_id" />
                                 </group>
                                 <group>
                                     <field name="profesor_email"/>
@@ -45,6 +45,9 @@
                                     <field name="profesor_dob"/>
                                     <field name="profesor_blood_group"/>
                                 </group>
+                            </group>
+                            <group>
+                                <field name="student_ids"/>
                             </group>
                         </div>
                     </sheet>

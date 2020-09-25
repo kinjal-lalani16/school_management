@@ -5,6 +5,7 @@ from odoo import models, fields, api
 class StudentRecord(models.Model):
 
     _name = 'student.record'
+    _rec_name = 'student_name'
 
     student_name = fields.Char(string='Name',required=True)
     last_name = fields.Char(string="Last Name",required=True)
@@ -14,3 +15,6 @@ class StudentRecord(models.Model):
     student_gender = fields.Selection([('m', 'Male'), ('f', 'Female'), ('o', 'Other')], string='Gender')
     student_blood_group = fields.Selection([('A+', 'A+ve'), ('B+', 'B+ve'), ('O+', 'O+ve'), ('AB+', 'AB+ve'),
        ('A-', 'A-ve'), ('B-', 'B-ve'), ('O-', 'O-ve'), ('AB-', 'AB-ve')],string='Blood Group')
+    #profesor_ids = fields.One2many('profesor.record','student_id',string="Profesor")
+    profesor_id = fields.Many2one('profesor.record',string="Profesor")
+    subject_ids = fields.Many2many('subject.record','subject_table','sub_id','sub_name')

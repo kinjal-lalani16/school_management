@@ -15,13 +15,15 @@
 			<xpath expr="//field[@name='barcode']" position="attributes">
 				<attribute name="readonly">False</attribute>
 			</xpath>
-			<!-- <xpath expr="//field[@name='barcode']" position="before">
-				<field name="product_short_name"/>
+			<xpath expr="//field[@name='barcode']" position="before">
+				<field name="tex"/>
 			</xpath>
-			<xpath expr="//field[@name='standard_price']" position="replace">
-				<field name="product_short_name"/>
+			<xpath expr="//field[@name='standard_price']" position="attributes">
+				<attribute name="invisible">0</attribute>
 			</xpath>
-			 -->
+			<xpath expr="//field[@name='taxes_id']" position="replace">
+				<field name="actual_price"/>
+			</xpath>
     	</field>
     </record>
 </odoo>

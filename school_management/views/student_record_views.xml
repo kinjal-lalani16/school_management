@@ -14,6 +14,8 @@
                     <field name="student_gender"/>
                     <field name="student_dob" />
                     <field name="student_blood_group" />
+                    <field name="profesor_id" />
+                    <field name="subject_ids" />
                     <field name="student_photo" widget="image" class="oe_left oe_avatar" />
                 </tree>
             </field>
@@ -35,16 +37,19 @@
                                     <field name="student_photo" widget="image" class="oe_left oe_avatar" />
                                     <field name="student_name"/>
                                     <field name="last_name"/>
-                                    <field name="student_age"/>
+                                    <field name="profesor_id"/>
                                 </group>
                                 <group>
+                                    <field name="student_age"/>
                                     <field name="student_gender"/>
                                     <field name="student_dob"/>
                                     <field name="student_blood_group"/>
                                 </group>
                             </group>
+                            <group>
+                                <field name="subject_ids"/>
+                            </group>
                         </div>
-
                     </sheet>
                 </form>
             </field>
