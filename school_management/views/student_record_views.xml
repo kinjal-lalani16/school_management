@@ -43,14 +43,20 @@
                                     <field name="student_name"/>
                                     <field name="last_name"/>
                                     <field name="profesor_id"/>
+                                    <field name="gender" readonly="1"/>
                                     <field name="student_email"/>
                                     <field name="school_name"/>
+                                    <field name="auto_rank"/>
                                 </group>
                                 <group>
                                     <field name="student_age"/>
                                     <field name="student_gender"/>
                                     <field name="student_dob"/>
                                     <field name="student_blood_group"/>
+                                    <field name="sale_id" domain="[('state', '=', ['draft','sent'])]"/>
+                                    <field name="profesor_blood_group_id" 
+                                    domain="[('profesor_blood_group','=','AB+')]"/>
+                                    <field name="school_type"/>
                                 </group>
                             </group>
                             <group>

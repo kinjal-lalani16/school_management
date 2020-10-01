@@ -1,32 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <!-- Tree view -->
-        <record id="profesor_record_tree_view" model="ir.ui.view">
+        <record id="profesor_record_form_view_base" model="ir.ui.view">
             <field name="name">Profesor</field>
             <field name="model">profesor.record</field>
-            <!-- <field name="priority" eval="8" />-->
-            <field name="arch" type="xml">
-                <tree string="Student">
-                    <field name="profesor_name" />
-                    <field name="profesor_department" />
-                    <field name="profesor_age"/>
-                    <field name="profesor_email" />
-                    <field name="profesor_phone_number"/>
-                    <field name="profesor_dob"/>
-                    <field name="student_ids"/>
-                    <field name="subject_id"/>
-                    <field name="profesor_blood_group"/>
-                </tree>
-            </field>
-        </record>
-
-
-        <!-- Form view -->
-        <record id="profesor_record_form_view" model="ir.ui.view">
-            <field name="name">Profesor</field>
-            <field name="model">profesor.record</field>
-<!-- <field name="priority" eval="8" />-->
             <field name="arch" type="xml">
                 <form string="Student">
                     <sheet>
@@ -36,8 +13,8 @@
                                 <group>
                                     <field name="profesor_name"/>
                                     <field name="profesor_department"/>
-                                    <field name="profesor_age"/>
-                                    <field name="subject_id" />
+                                    <!-- <field name="profesor_age"/>
+                         -           <field name="subject_id" /> -->
                                 </group>
                                 <group>
                                     <field name="profesor_email"/>
@@ -75,11 +52,44 @@
             </field>
         </record>
 
+
+        <!-- Tree view -->
+        <record id="profesor_record_tree_view" model="ir.ui.view">
+            <field name="name">Profesor</field>
+            <field name="model">profesor.record</field>
+            <field name="arch" type="xml">
+                <tree string="Student">
+                    <field name="profesor_name" />
+                    <field name="profesor_department" />
+                    <field name="profesor_age"/>
+                    <field name="profesor_email" />
+                    <field name="profesor_phone_number"/>
+                    <field name="profesor_dob"/>
+                    <field name="student_ids"/>
+                    <field name="subject_id"/>
+                    <field name="profesor_blood_group"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Form view -->
+        <record id="profesor_record_form_view" model="ir.ui.view">
+            <field name="name">Profesor</field>
+            <field name="model">profesor.record</field>
+            <field name="inherit_id" ref="school_management.profesor_record_form_view_base"/>
+            <field name="arch" type="xml">
+                <field name="profesor_department" position="after">
+                    <field name="profesor_age"/>
+                    <field name="subject_id" />
+                </field>
+            </field>
+        </record>
+
         <!-- Menu -->
         <record model="ir.actions.act_window" id="action_view_profesor">
             <field name="name">Profesor</field>
             <field name="res_model">profesor.record</field>
-           <!--  <field name="view_type">form</field> -->
             <field name="view_mode">tree,form</field>
             <field name="domain">[]</field>
             <field name="help" type="html">
