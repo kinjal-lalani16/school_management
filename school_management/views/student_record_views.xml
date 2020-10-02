@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        
+
         <!-- Tree view -->
         <record id="student_record_tree_view" model="ir.ui.view">
             <field name="name">Students</field>
@@ -32,7 +32,7 @@
             <field name="arch" type="xml">
                 <form string="Student">
                     <sheet>
-                        
+
                         <div class="oe_title">
                             <h1>
                                 <field name="roll_no" readonly="1"/>
@@ -46,21 +46,20 @@
                                     <field name="gender" readonly="1"/>
                                     <field name="student_email"/>
                                     <field name="school_name"/>
-                                    <field name="auto_rank"/>
                                 </group>
                                 <group>
-                                    <field name="student_age"/>
-                                    <field name="student_gender"/>
                                     <field name="student_dob"/>
                                     <field name="student_blood_group"/>
-                                    <field name="sale_id" domain="[('state', '=', ['draft','sent'])]"/>
-                                    <field name="profesor_blood_group_id" 
-                                    domain="[('profesor_blood_group','=','AB+')]"/>
+                                    <field name="student_age" readonly="1"/>
+                                    <field name="student_gender"/>
                                     <field name="school_type"/>
+                                    <field name="auto_rank"/>
+                                    <!-- <field name="sale_id" domain="[('state', '=', ['draft','sent'])]"/> -->
                                 </group>
                             </group>
                             <group>
-                                <field name="subject_ids" widget="many2many_tags"/>
+                                <field name="subject_ids"
+                                    widget="many2many_tags"/>
                             </group>
                         </div>
                     </sheet>
@@ -83,7 +82,8 @@
 
         <!-- Action -->
         <menuitem id="menu_school" name="School"/>
-        <menuitem id="school_student" name="Students" parent="menu_school" action="action_view_students"/>
+        <menuitem id="school_student" name="Students" parent="menu_school"
+         action="action_view_students"/>
     </data>
 </odoo>
 

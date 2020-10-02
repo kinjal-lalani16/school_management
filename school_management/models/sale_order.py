@@ -1,7 +1,7 @@
-from odoo import models,fields
+from odoo import fields, models
 
 
 class SaleOrder(models.Model):
-	_inherit = "sale.order"
+    _inherit = "sale.order"
 
-	customer_age = fields.Integer(string="Customer age")
+    customer_age = fields.Integer(string="Customer age")

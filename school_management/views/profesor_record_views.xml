@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
                 <form string="Student">
                     <sheet>
-                        
+
                         <div class="oe_title">
                             <group>
                                 <group>
@@ -26,7 +26,8 @@
                             </group>
                             <group>
                                 <notebook>
-                                    <page string="Student list" name="student_list">
+                                    <page string="Student list"
+                                        name="student_list">
                                         <field name="student_ids">
                                             <tree editable="bottom">
                                                 <field name="student_name"/>
@@ -82,6 +83,7 @@
                 <field name="profesor_department" position="after">
                     <field name="profesor_age"/>
                     <field name="subject_id" />
+                    <field name="subject_description"/>
                 </field>
             </field>
         </record>
@@ -100,7 +102,8 @@
 
         <!-- Action -->
         <menuitem id="menu_school" name="School"/>
-        <menuitem id="school_profesor" name="Profesor" parent="menu_school" action="action_view_profesor"/>
+        <menuitem id="school_profesor" name="Profesor" parent="menu_school"
+            action="action_view_profesor"/>
     </data>
 </odoo>
 

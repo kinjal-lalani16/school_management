@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 {
     'name': "school Management",
     'summary': """This module will store the school details""",
@@ -8,9 +8,9 @@
     'category': 'Tooles',
     'version': '13.0.1.0.0',
     'depends': ['base',
-            'sale_management',
-            'sale'
-    ],
+                'sale_management',
+                'sale'
+                ],
     'data': [
         'security/ir.model.access.csv',
         'views/student_record_views.xml',
@@ -21,9 +21,7 @@
         'views/test_view.xml',
         'wizard/date_wizard_view.xml',
         'data/ir_sequence_data.xml',
-        #'views/templates.xml',
+        # 'views/templates.xml',
     ],
-   
+
 }
-
-
