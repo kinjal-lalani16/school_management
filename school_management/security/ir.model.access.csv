@@ -5,3 +5,4 @@ access_profesor_record,access.profesor.record,model_profesor_record,base.group_u
 access_subject_record,access.subject.record,model_subject_record,base.group_user,1,1,1,0
 access_sale_order,access.sale.order,model_sale_order,base.group_user,1,1,1,0
 access_product_product,access.product.product,model_product_product,base.group_user,1,1,1,0
+access_res_config_settings,access.res.config.settings,model_res_config_settings,base.group_user,1,1,1,0
