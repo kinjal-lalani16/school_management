@@ -32,14 +32,6 @@
             <field name="arch" type="xml">
                 <form string="Student">
                     <sheet>
-                       <div name="button_box" class="oe_button_box">
-                            <button name="number_count"
-                                    class="oe_stat_button"
-                                    icon="fa-bars"
-                                    type="object"
-                                    string="profesor">
-                            </button>
-                        </div>
                         <div class="oe_title">
                             <h1>
                                 <field name="roll_no" readonly="1"/>

@@ -38,18 +38,6 @@ class StudentRecord(models.Model):
     school_name = fields.Char(string='School')
     sale_id = fields.Many2one('sale.order', string="Sale Order")
 
-    def number_count(self):
-        return {
-            'name' : 'Profesor',
-            'domain' : [('profesor_id', '=' ,self.id)],
-            'type': 'ir.actions.act_window',
-            'view_mode': 'form',
-            'res_model': 'profesor.record',
-            'view_mode': 'tree',
-            'view_id': False,
-
-        }
-
     @api.onchange('student_dob')
     def get_age(self):
         for record in self:
