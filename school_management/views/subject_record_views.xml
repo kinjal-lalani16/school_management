@@ -23,7 +23,16 @@
             <field name="arch" type="xml">
                 <form string="Subject">
                     <sheet>
+                        <div name="button_box" class="oe_button_box">
+                            <button name="get_profesor"
+                                    class="oe_stat_button"
+                                    icon="fa-contacts"
+                                    type="object">
 
+                                <field name="profesor_count"
+                                    string="Profesor"/>
+                            </button>
+                        </div>
                         <div class="oe_title">
                             <group>
                                 <group>
@@ -32,7 +41,6 @@
                                 </group>
                             </group>
                         </div>
-
                     </sheet>
                 </form>
             </field>

@@ -11,7 +11,7 @@ class profesorRecord(models.Model):
 
     profesor_name = fields.Char(string="Professor Name", required=True)
     profesor_department = fields.Char(string="Department", required=True)
-    profesor_age = fields.Integer(string="Age", compute="_get_age")
+    profesor_age = fields.Integer(string="Age")
     profesor_email = fields.Char(string="E-mail")
     profesor_dob = fields.Date(string="Date of Birth")
     profesor_phone_number = fields.Char(string="Phone Number")
@@ -27,14 +27,22 @@ class profesorRecord(models.Model):
     student_ids = fields.One2many(
         'student.record', 'profesor_id', string="Student")
 
-    @api.depends('profesor_dob')
-    def _get_age(self):
-        for record in self:
-            if record.profesor_dob:
-                date_record = record.profesor_dob
-                current_date = date.today()
-                result = relativedelta(current_date, date_record)
-                record.profesor_age = int(result.years)
+
+    def profesor_subject(self):
+        return {
+            'name' : 'Subject',
+            'domain' : [('profesor_id', '=' ,self.id)],
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'student.record',
+            'view_mode': 'tree',
+            'view_id': False,
+
+        }
+
+    def get_profesor_count(self):
+        count = self.env['student.record'].search_count([('profesor_id','=','self.id')])
+        self.profesor_count = count
 
     @api.constrains('profesor_phone_number')
     def check_phone_number(self):

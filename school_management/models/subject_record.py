@@ -8,3 +8,23 @@ class SubjectRecord(models.Model):
 
     subject_name = fields.Char(sting="Name")
     subject_details = fields.Char(string="Details")
+    profesor_ids = fields.One2many('profesor.record','subject_id',string='Profesor')
+    profesor_count = fields.Integer(compute='get_profesor_count')
+
+
+
+    def get_profesor(self):
+        return {
+            'name' : 'Professor',
+            'domain' : [('subject_id', '=' ,self.id)],
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'profesor.record',
+            'view_mode': 'tree',
+            'view_id': False,
+
+        }
+
+    def get_profesor_count(self):
+        count = self.env['profesor.record'].search_count([('subject_id','=',self.id)])
+        self.profesor_count = count

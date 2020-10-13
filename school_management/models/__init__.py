@@ -6,3 +6,4 @@ from . import subject_record
 from . import sale_order
 from . import product_product
 from . import test
+from . import res_config_settings

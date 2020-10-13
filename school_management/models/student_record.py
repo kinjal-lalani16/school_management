@@ -38,22 +38,17 @@ class StudentRecord(models.Model):
     school_name = fields.Char(string='School')
     sale_id = fields.Many2one('sale.order', string="Sale Order")
 
-    # @api.onchange('profesor_id')
-    # def set_gender(self):
-    #     for record in self:
-    #         if record.profesor_id:
-    #             record.gender = record.profesor_id.profesor_gender
+    def number_count(self):
+        return {
+            'name' : 'Profesor',
+            'domain' : [('profesor_id', '=' ,self.id)],
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'profesor.record',
+            'view_mode': 'tree',
+            'view_id': False,
 
-    # @api.depends('student_dob')
-    # def _get_age(self):
-    #     for record in self:
-    #         if record.student_dob:
-    #             date_record = record.student_dob
-    #             current_date = date.today()
-    #             result = relativedelta(current_date, date_record)
-    #             record.age = int(result.years)
-    #             self.student_age = record.age
-    #             print('\n\n self_student_age',self.student_age)
+        }
 
     @api.onchange('student_dob')
     def get_age(self):
