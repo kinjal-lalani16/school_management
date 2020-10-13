@@ -5,6 +5,7 @@ from odoo import models, fields, api
 class StudentRecord(models.Model):
 
     _name = 'student.record'
+    _rec_name = 'student_name'
 
     student_name = fields.Char(string='Name',required=True)
     last_name = fields.Char(string="Last Name",required=True)

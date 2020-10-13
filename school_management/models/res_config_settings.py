@@ -5,6 +5,7 @@ class ResConfigSetting(models.TransientModel):
 
     condition = fields.Boolean(string='Condition')
     team_condition = fields.Char(string='Team condition')
+    student_id = fields.Many2one('student.record', string='Student')
 
     @api.onchange('condition')
     def check_condition(self):
@@ -17,7 +18,11 @@ class ResConfigSetting(models.TransientModel):
         res = super(ResConfigSetting, self).get_values()
         ICPSudo = self.env['ir.config_parameter'].sudo()
         sale_condtion = ICPSudo.get_param('sale.condition')
-        res.update(condition=sale_condtion)
+        student_id = int(ICPSudo.get_param('school_management.student_id'))
+        if student_id and \
+                not self.env['student.record'].browse(student_id).exists():
+            student_id = False
+        res.update(condition=sale_condtion,student_id=student_id)
         return res
 
     @api.multi
@@ -25,4 +30,5 @@ class ResConfigSetting(models.TransientModel):
         super(ResConfigSetting, self).set_values()
         ICPSudo = self.env['ir.config_parameter'].sudo()
         ICPSudo.set_param("sale.condition", self.condition)
+        ICPSudo.set_param("school_management.student_id", self.student_id.id)
 
