@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        
+
         <!-- Tree view -->
         <record id="test_record_tree_view" model="ir.ui.view">
             <field name="name">Test</field>
@@ -21,7 +21,8 @@
             <field name="name">Test</field>
             <field name="model">test.test</field>
             <field name="mode">primary</field>
-            <field name="inherit_id" ref="school_management.profesor_record_form_view_base"/>
+            <field name="inherit_id"
+                ref="school_management.profesor_record_form_view_base"/>
             <field name="arch" type="xml">
                 <field name="profesor_name" position="after">
                     <field name="test_name"/>

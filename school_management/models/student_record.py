@@ -20,8 +20,8 @@ class StudentRecord(models.Model):
     student_name = fields.Char(string='Name', required=True)
     last_name = fields.Char(string="Last Name", required=True)
     student_photo = fields.Binary(string="Photo")
-    student_age = fields.Integer(string="Age",store=True)
-    student_dob = fields.Date(string="Date of Birth")
+    student_age = fields.Integer(string="Age", readonly=False)
+    student_dob = fields.Date(string="Date of Birth",required=True)
     school_type = fields.Selection([('public', 'Public School'),
                                     ('private', 'Private School')])
     auto_rank = fields.Integer(compute="_auto_rank", string="Rank")
@@ -30,14 +30,16 @@ class StudentRecord(models.Model):
     student_blood_group = fields.Selection([('A+', 'A+ve'), ('B+', 'B+ve'),
         ('O+', 'O+ve'), ('AB+', 'AB+ve'),('A-', 'A-ve'), ('B-', 'B-ve'),
         ('O-', 'O-ve'), ('AB-', 'AB-ve')], string='Blood Group')
-    student_email = fields.Char(string='Student Email')
+    student_email = fields.Char(string='Student Email',required=True)
     profesor_id = fields.Many2one('profesor.record', string="Profesor")
-    gender = fields.Selection(related="profesor_id.profesor_gender",readonly=True)
+    gender = fields.Selection(related="profesor_id.profesor_gender",
+        readonly=True)
     subject_ids = fields.Many2many(
         'subject.record', 'subject_table', 'sub_id', 'sub_name')
     school_name = fields.Char(string='School')
     sale_id = fields.Many2one('sale.order', string="Sale Order")
 
+    #onchange function to get age through entered dob
     @api.onchange('student_dob')
     def get_age(self):
         for record in self:
@@ -48,20 +50,22 @@ class StudentRecord(models.Model):
                 age = int(result.years)
                 record.student_age = age
 
-    @api.constrains('student_email')
-    def validate_mail(self):
-        if self.student_email:
-            match = re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', self.student_email)
-            if match == None:
-                raise ValidationError('Not a valid E-mail ID')
-
+    #constrain for not allowing user to enter current date or future date
     @api.constrains('student_dob')
     def validate_dob(self):
         if self.student_dob >= (date.today()):
             raise ValidationError("Date you have enter is not valid..!")
 
+    @api.constrains('student_email')
+    def validate_mail(self):
+        if self.student_email:
+            match = re.match('^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$',
+                self.student_email)
+            if match == None:
+                raise ValidationError('Not a valid E-mail ID')
 
     @api.model
+    #create method for genrating roll no
     def create(self, vals):
         if vals.get('roll_no', ('New')) == ('New'):
             vals['roll_no'] = self.env['ir.sequence'].next_by_code(
@@ -72,16 +76,12 @@ class StudentRecord(models.Model):
         # search method
         student_female = self.env['student.record'].search(
             [('student_gender', '=', 'f')])
-        print(student_female)
         student_male = self.env['student.record'].search(
             [('student_gender', '=', 'm'), ('student_age', '=', 15)])
-        print("\n\n\n\n\t\t\t\t", student_male)
         profesor_bg = self.env['profesor.record'].search(
             [('profesor_blood_group', '=', 'AB+')])
-        print("\n\n\n\n", profesor_bg)
         # browse method
         student_browse = self.env['student.record'].browse(27).exists()
-        print("\n\n\n", student_browse)
         # exists method
         if student_browse.exists():
             print("\n \n \nId exists in database")
@@ -89,25 +89,21 @@ class StudentRecord(models.Model):
             print("\n \n \nid does not exist in database")
         # search_count()
         student_count = self.env['student.record'].search_count([])
-        print("number of student is : ", student_count)
         # ref method
         sale_xml = self.env.ref(
             'school_management.profesor_record_form_view').id
-        print("\n \n sale id is", sale_xml)
-
-        # unlink
-
         return result
 
-        def write(self, values):
-            super(StudentRecord, self).write(values)
-            # print('\n\n\n ',values)
+    #write method for email.
+    def write(self, values):
+        super(StudentRecord, self).write(values)
+        if 'student_email' in values:
+            raise UserError("You cannot change email of a student.")
+        #unlink method
+        unlink_record = self.env['student.record'].browse(27)
+        unlink_record.unlink()
 
-            if 'student_email' in values:
-                raise UserError("You cannot change email of a student.")
-            unlink_record = self.env['student.record'].browse(27)
-            unlink_record.unlink()
-
+    #depends method for school type
     @api.depends('school_type')
     def _auto_rank(self):
         for r in self:

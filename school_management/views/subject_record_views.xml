@@ -25,20 +25,24 @@
                     <sheet>
                         <div name="button_box" class="oe_button_box">
                             <button name="get_profesor"
+                                    icon ="fa-user"
+
                                     class="oe_stat_button"
-                                    icon="fa-contacts"
                                     type="object">
 
-                                <field name="profesor_count"
+                                <field name="profesor_count" widget="statinfo"
                                     string="Profesor"/>
+
                             </button>
                         </div>
                         <div class="oe_title">
                             <group>
+                            <div class="row">
                                 <group>
                                     <field name="subject_name"/>
                                     <field name="subject_details"/>
                                 </group>
+                            </div>
                             </group>
                         </div>
                     </sheet>

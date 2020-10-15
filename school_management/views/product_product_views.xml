@@ -25,7 +25,8 @@
 				<field name="tex"/>
 			</xpath>
 			<xpath
-                expr="//form/sheet/notebook/page//field[@name='standard_price']" position="attributes">
+                expr="//form/sheet/notebook/page//field[@name='standard_price']"
+                position="attributes">
 				<attribute name="invisible">0</attribute>
 			</xpath>
 			<xpath expr="//form/sheet/notebook/page//field[@name='taxes_id']"

@@ -7,7 +7,7 @@ class ResConfigSetting(models.TransientModel):
     team_condition = fields.Char(string='Team condition')
     student_id = fields.Many2one('student.record', string='Student')
 
-
+    #onchange method for condition
     @api.onchange('condition')
     def check_condition(self):
         if not self.condition:
@@ -15,6 +15,7 @@ class ResConfigSetting(models.TransientModel):
 
 
     @api.model
+    #get_vakues method to add field in res.config file
     def get_values(self):
         res = super(ResConfigSetting, self).get_values()
         ICPSudo = self.env['ir.config_parameter'].sudo()
@@ -29,7 +30,7 @@ class ResConfigSetting(models.TransientModel):
             student_id=student_id)
         return res
 
-    # @api.multi
+    #get_vakues method to set field in res.config file
     def set_values(self):
         super(ResConfigSetting, self).set_values()
         ICPSudo = self.env['ir.config_parameter'].sudo()
