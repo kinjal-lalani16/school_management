@@ -2,16 +2,20 @@
 <odoo>
     <data>
         <record id="profesor_record_form_view_base" model="ir.ui.view">
-            <field name="name">Profesor</field>
+            <field name="name">profesor.record.form.view</field>
             <field name="model">profesor.record</field>
             <field name="arch" type="xml">
                 <form string="Student">
+                    <header>
+                        <button name="create_student" string="Create Student"
+                            type="object" class="btn-primary"/>
+                    </header>
                     <sheet>
-                        <div class="oe_title">
-
+                        <div>
                             <group>
                                 <group>
-                                    <field name="profesor_name"/>
+                                    <field name="profesor_name"
+                                        context="{'default_profesor_name':'profesor_name'}"/>
                                     <field name="profesor_department"/>
                                     <!-- <field name="profesor_age"/>
                          -           <field name="subject_id" /> -->
@@ -33,33 +37,72 @@
                                             <tree editable="bottom">
                                                 <field name="student_name"/>
                                                 <field name="last_name"/>
+                                                <field name="student_dob"/>
                                                 <field name="student_age"/>
                                                 <field name="student_gender"/>
                                             </tree>
                                             <form>
                                                 <group>
-                                                    <field name="student_name"/>
-                                                    <field name="last_name"/>
-                                                    <field name="student_age"/>
-                                                    <field
-                                                        name="student_gender"/>
+                                                    <group>
+                                                        <field
+                                                            name="student_name"/>
+                                                        <field name="last_name"/>
+                                                        <field
+                                                            name="student_gender"/>
+                                                    </group>
+                                                    <group>
+                                                        <field name="student_dob"/>
+                                                        <field name="student_age"/>
+                                                        <field name="school_name"/>
+                                                    </group>
                                                 </group>
                                             </form>
                                         </field>
                                     </page>
                                 </notebook>
                             </group>
-
                         </div>
                     </sheet>
                 </form>
             </field>
         </record>
-
+        <record id="profesor_record_kanban_view" model="ir.ui.view">
+            <field name="name">profesor.record.kanban.view</field>
+            <field name="model">profesor.record</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name='id'/>
+                    <field name="profesor_name"/>
+                    <field name="profesor_department"/>
+                    <field name="profesor_dob"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <ul>
+                                        <li>
+                                            <strong>
+                                                <field name="profesor_name"/>
+                                            </strong>
+                                        </li>
+                                        <li>Department:
+                                            <field name="profesor_department"/>
+                                        </li>
+                                        <li>dob:
+                                            <field name="profesor_dob"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
 
         <!-- Tree view -->
         <record id="profesor_record_tree_view" model="ir.ui.view">
-            <field name="name">Profesor</field>
+            <field name="name">Profesor.record.tree.view</field>
             <field name="model">profesor.record</field>
             <field name="arch" type="xml">
                 <tree string="Student">
@@ -69,7 +112,6 @@
                     <field name="profesor_phone_number"/>
                     <field name="profesor_email" />
                     <field name="profesor_dob"/>
-                    <field name="student_ids"/>
                     <field name="subject_id"/>
                     <field name="profesor_blood_group"/>
                 </tree>
@@ -95,8 +137,9 @@
         <record model="ir.actions.act_window" id="action_view_profesor">
             <field name="name">Profesor</field>
             <field name="res_model">profesor.record</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,kanban,form</field>
             <field name="domain">[]</field>
+            <field name="context">{}</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">Create new Profesor
                 </p>

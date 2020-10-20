@@ -20,8 +20,10 @@
         'views/sale_order_views.xml',
         'views/test_view.xml',
         'views/res_config_views.xml',
-        'wizard/date_wizard_view.xml',
         'data/ir_sequence_data.xml',
+        'data/subject_corn.xml',
+        'wizard/date_wizard_view.xml',
+        'wizard/msg_wizard_views.xml',
         # 'views/templates.xml',
     ],
 

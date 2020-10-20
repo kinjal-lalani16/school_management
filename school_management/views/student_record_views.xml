@@ -23,8 +23,48 @@
             </field>
         </record>
 
+        <!-- Kanban view -->
+        <record id="student_record_kanban_view" model="ir.ui.view">
+            <field name="name">student.record.kanban.view</field>
+            <field name="model">student.record</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name='id'/>
+                    <field name="student_photo"/>
+                    <field name="student_name"/>
+                    <field name="student_email"/>
+                    <field name="student_dob"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img alt="Avatar"
+                                    t-att-src="kanban_image('student.record', 'student_photo',record.id.raw_value)"
+                                    class="o_image_64_contain"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <ul>
+                                        <li>
+                                            <strong>
+                                                <field name="student_name"/>
+                                            </strong>
+                                        </li>
+                                        <li>Email:
+                                            <field name="student_email"/>
+                                        </li>
+                                        <li>dob:
+                                            <field name="student_dob"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
 
-        <!-- Form view -->
+    <!-- Form view -->
         <record id="student_record_form_view" model="ir.ui.view">
             <field name="name">Students</field>
             <field name="model">student.record</field>
@@ -32,7 +72,7 @@
             <field name="arch" type="xml">
                 <form string="Student">
                     <sheet>
-                        <div class="oe_title">
+                        <div>
                             <h1>
                                 <field name="roll_no" readonly="1"/>
                             </h1>
@@ -72,7 +112,7 @@
             <field name="name">Students</field>
             <field name="res_model">student.record</field>
            <!--  <field name="view_type">form</field> -->
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,kanban,form</field>
             <field name="domain">[]</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">Create new student

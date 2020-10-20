@@ -8,6 +8,7 @@ class profesorRecord(models.Model):
 
     _name = "profesor.record"
     _rec_name = "profesor_name"
+    _description = "profesor "
 
     profesor_name = fields.Char(string="Professor Name", required=True)
     profesor_department = fields.Char(string="Department", required=True)
@@ -51,6 +52,11 @@ class profesorRecord(models.Model):
         if self.profesor_dob >= (date.today()):
             raise ValidationError("Date you have enter is not valid..!")
 
+    @api.constrains('profesor_age')
+    def check_age(self):
+        if self.profesor_age < 25:
+            raise ValidationError(
+                'Can not ragister as a professor.Age must be greater than 25.!')
 
     @api.constrains('profesor_email')
     def validate_mail(self):
@@ -60,4 +66,32 @@ class profesorRecord(models.Model):
             if match == None:
                 raise ValidationError('Not a valid E-mail ID')
 
+    def create_student(self):
+        student_record = self.env['student.record'].search([])
+        email_list = []
+        for i in student_record:
+            email_list.append(i.student_email)
+        student =self.env['student.record'].create({
+            'student_name':'Kinjal',
+            'last_name':'Lalani',
+            'student_dob':'2005-12-10',
+            'student_email':'kinjal123@gmail.com'
+            })
+        pop_up = {
+            'name': 'Message',
+            'type': 'ir.actions.act_window',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': 'msg.wizard',
+            'target':'new',
+            'context':{'default_name':"Student created successfully."}
+            }
+        for i in student:
+            print('\nhello',i)
+            for j in email_list:
+                if j == i.student_email:
+                    raise ValidationError(
+                        'Email alredy exist..!You can not create student with this email..!')
+            else:
+                return pop_up
 

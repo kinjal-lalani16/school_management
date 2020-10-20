@@ -12,6 +12,7 @@ class StudentRecord(models.Model):
 
     _name = 'student.record'
     _rec_name = 'student_name'
+    _description = 'student details'
 
     roll_no = fields.Char(string='Student Roll No', required=True, copy=False,
     readonly=True, states={'draft': [('readonly', False)]}, index=True,
@@ -55,6 +56,15 @@ class StudentRecord(models.Model):
     def validate_dob(self):
         if self.student_dob >= (date.today()):
             raise ValidationError("Date you have enter is not valid..!")
+
+    @api.constrains('student_age')
+    def check_age(self):
+        if self.student_age > 20:
+            raise ValidationError(
+                'Can not ragister as a student..Age must be less than 20..!')
+        if self.student_age < 5:
+            raise ValidationError(
+                'Can not ragister as a student..Age must be greater than 5..!')
 
     @api.constrains('student_email')
     def validate_mail(self):

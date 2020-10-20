@@ -12,6 +12,7 @@
                 <tree string="Test">
                     <field name="test_name" />
                     <field name="test_date"/>
+                    <field name="profesor_id"/>
                 </tree>
             </field>
         </record>

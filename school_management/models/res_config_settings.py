@@ -15,7 +15,7 @@ class ResConfigSetting(models.TransientModel):
 
 
     @api.model
-    #get_vakues method to add field in res.config file
+    #get_values method to add field in res.config file
     def get_values(self):
         res = super(ResConfigSetting, self).get_values()
         ICPSudo = self.env['ir.config_parameter'].sudo()
