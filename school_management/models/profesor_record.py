@@ -7,10 +7,10 @@ import re
 class profesorRecord(models.Model):
 
     _name = "profesor.record"
-    _rec_name = "profesor_name"
-    _description = "profesor "
+    # _rec_name = "profesor_name"
+    _description = "profesor"
 
-    profesor_name = fields.Char(string="Professor Name", required=True)
+    name = fields.Char(string="Professor Name", required=True)
     profesor_department = fields.Char(string="Department", required=True)
     profesor_dob = fields.Date(string="Date of Birth",required=True)
     profesor_phone_number = fields.Char(string="Phone Number")
@@ -26,6 +26,15 @@ class profesorRecord(models.Model):
                                       readonly=True)
     student_ids = fields.One2many(
         'student.record', 'profesor_id', string="Student")
+
+    @api.model
+    def name_get(self):
+        profesor=[]
+        for i in self:
+            name = i.profesor_phone_number + i.name
+            profesor.append((i.id, name))
+        return profesor
+
 
     #onchange function to get age through entered dob
     @api.depends('profesor_dob')
@@ -94,4 +103,5 @@ class profesorRecord(models.Model):
                         'Email alredy exist..!You can not create student with this email..!')
             else:
                 return pop_up
+
 

@@ -14,8 +14,8 @@
                         <div>
                             <group>
                                 <group>
-                                    <field name="profesor_name"
-                                        context="{'default_profesor_name':'profesor_name'}"/>
+                                    <field name="name"
+                                        context="{'default_profesor_name':'name'}"/>
                                     <field name="profesor_department"/>
                                     <!-- <field name="profesor_age"/>
                          -           <field name="subject_id" /> -->
@@ -39,7 +39,7 @@
                                                 <field name="last_name"/>
                                                 <field name="student_dob"/>
                                                 <field name="student_age"/>
-                                                <field name="student_gender"/>
+                                                <field name="school_name"/>
                                             </tree>
                                             <form>
                                                 <group>
@@ -47,8 +47,7 @@
                                                         <field
                                                             name="student_name"/>
                                                         <field name="last_name"/>
-                                                        <field
-                                                            name="student_gender"/>
+                                                        <field name="student_email"/>
                                                     </group>
                                                     <group>
                                                         <field name="student_dob"/>
@@ -72,7 +71,7 @@
             <field name="arch" type="xml">
                 <kanban>
                     <field name='id'/>
-                    <field name="profesor_name"/>
+                    <field name="name"/>
                     <field name="profesor_department"/>
                     <field name="profesor_dob"/>
                     <templates>
@@ -82,7 +81,7 @@
                                     <ul>
                                         <li>
                                             <strong>
-                                                <field name="profesor_name"/>
+                                                <field name="name"/>
                                             </strong>
                                         </li>
                                         <li>Department:
@@ -106,7 +105,7 @@
             <field name="model">profesor.record</field>
             <field name="arch" type="xml">
                 <tree string="Student">
-                    <field name="profesor_name" />
+                    <field name="name" />
                     <field name="profesor_department" />
                     <field name="profesor_age"/>
                     <field name="profesor_phone_number"/>

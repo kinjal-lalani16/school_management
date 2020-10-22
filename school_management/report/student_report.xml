@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            id="action_report_student"
+            string="Student Details"
+            model="student.record"
+            report_type="qweb-pdf"
+            file="school_management.report_student"
+            name="school_management.report_student"
+        />
+
+        <report
+            id="profesor_report_action"
+            string="Profesor Details"
+            model="profesor.record"
+            report_type="qweb-pdf"
+            file="school_management.profesor_report"
+            name="school_management.profesor_report"
+        />
+
+    </data>
+</odoo>

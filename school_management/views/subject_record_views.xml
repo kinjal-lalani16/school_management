@@ -19,7 +19,7 @@
             <field name="name">subject.record.kanban.view</field>
             <field name="model">subject.record</field>
             <field name="arch" type="xml">
-                <kanban>
+                <kanban class="o_kanban_mobile" archivable="false">
                     <field name='id'/>
                     <field name="subject_name"/>
                     <field name="subject_details"/>
@@ -29,8 +29,10 @@
                                 <div class="oe_kanban_details">
                                     <ul>
                                         <li>
-                                            <strong>
-                                                <field name="subject_name"/>
+                                            <strong class="o_kanban_record_title">
+                                                <span>
+                                                    <field name="subject_name"/>
+                                                </span>
                                             </strong>
                                         </li>
                                         <li>Details:

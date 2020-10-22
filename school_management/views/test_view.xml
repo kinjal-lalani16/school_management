@@ -25,7 +25,7 @@
             <field name="inherit_id"
                 ref="school_management.profesor_record_form_view_base"/>
             <field name="arch" type="xml">
-                <field name="profesor_name" position="after">
+                <field name="name" position="after">
                     <field name="test_name"/>
                 </field>
             </field>

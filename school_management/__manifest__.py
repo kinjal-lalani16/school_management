@@ -20,11 +20,19 @@
         'views/sale_order_views.xml',
         'views/test_view.xml',
         'views/res_config_views.xml',
+
+        #data files
         'data/ir_sequence_data.xml',
         'data/subject_corn.xml',
+
+        #wizard files
         'wizard/date_wizard_view.xml',
         'wizard/msg_wizard_views.xml',
-        # 'views/templates.xml',
+
+        #report files
+        'report/student_report.xml',
+        'report/student_report_view.xml',
+        'report/profesor_view.xml',
     ],
 
 }
