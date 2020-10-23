@@ -29,11 +29,14 @@ class profesorRecord(models.Model):
 
     @api.model
     def name_get(self):
-        profesor=[]
-        for i in self:
-            name = i.profesor_phone_number + i.name
-            profesor.append((i.id, name))
-        return profesor
+            profesor=[]
+            for i in self:
+                if self._context.get('profesor_id'):
+                    name = i.profesor_phone_number + i.name
+                    profesor.append((i.id, name))
+                    return profesor
+                else:
+                    return super(profesorRecord,self).name_get()
 
 
     #onchange function to get age through entered dob

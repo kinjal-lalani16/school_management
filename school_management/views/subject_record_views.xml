@@ -73,9 +73,15 @@
                             <group>
                             <div class="row">
                                 <group>
-                                    <field name="subject_name"/>
-                                    <field name="subject_details"/>
-                                    <field name="start_date"/>
+                                    <group>
+                                        <field name="subject_name"/>
+                                        <field name="subject_details"/>
+                                        <field name="start_date"/>
+                                    </group>
+                                    <group>
+                                        <field name="sale_id" />
+                                        <field name="product_id" context="{'sale_id':sale_id}"/>
+                                    </group>
                                 </group>
                             </div>
                             </group>

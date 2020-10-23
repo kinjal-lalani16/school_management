@@ -15,6 +15,8 @@ class SubjectRecord(models.Model):
     profesor_count = fields.Integer(compute='get_profesor_count')
     start_date = fields.Date(string='Last modified',default=datetime.today(),
         required=True)
+    sale_id = fields.Many2one('sale.order',string='Sale Id')
+    product_id=fields.Many2one('product.product',string='Product Id')
 
 
     def get_profesor(self):

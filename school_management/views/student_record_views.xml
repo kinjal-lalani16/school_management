@@ -82,7 +82,7 @@
                                         class="oe_left oe_avatar" />
                                     <field name="student_name"/>
                                     <field name="last_name"/>
-                                    <field name="profesor_id"/>
+                                    <field name="profesor_id" context="{'profesor_id':'True'}"/>
                                     <field name="gender" readonly="1"/>
                                     <field name="student_email"
                                         placeholder="example123@gmail.com"/>
