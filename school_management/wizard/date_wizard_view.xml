@@ -10,14 +10,14 @@
 		       <form>
 		       		<group>
 			            <group>
-			                   <field name="start_date"/>
+			                 <field name="start_date"/>
 			            </group>
 			            <group>
-			                   <field name="end_date"/>
+			                 <field name="end_date"/>
 			            </group>
 			        </group>
 		           <footer>
-		               <button name="action_done" string="Confirm" type="object" class="oe_highlight"/>
+		               <button name="action_done" string="Print" type="object" class="oe_highlight"/>
 		               <button string="Cancel" class="btn btn-default" special="cancel"/>
 		           </footer>
 		       </form>

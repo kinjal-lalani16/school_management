@@ -4,7 +4,9 @@ import re
 from datetime import date
 
 from dateutil.relativedelta import relativedelta
+
 from odoo import api, fields, models
+
 from odoo.exceptions import UserError, ValidationError
 
 
@@ -15,32 +17,33 @@ class StudentRecord(models.Model):
     _description = 'student details'
 
     roll_no = fields.Char(string='Student Roll No', required=True, copy=False,
-    readonly=True, states={'draft': [('readonly', False)]}, index=True,
-    default=lambda self: ('New'))
+                          readonly=True, states={
+                              'draft': [('readonly', False)]}, index=True,
+                          default=lambda self: ('New'))
 
     student_name = fields.Char(string='Name', required=True)
     last_name = fields.Char(string="Last Name", required=True)
     student_photo = fields.Binary(string="Photo")
     student_age = fields.Integer(string="Age", readonly=False)
-    student_dob = fields.Date(string="Date of Birth",required=True)
+    student_dob = fields.Date(string="Date of Birth", required=True)
     school_type = fields.Selection([('public', 'Public School'),
                                     ('private', 'Private School')])
     auto_rank = fields.Integer(compute="_auto_rank", string="Rank")
     student_gender = fields.Selection(
         [('m', 'Male'), ('f', 'Female'), ('o', 'Other')], string='Gender')
-    student_blood_group = fields.Selection([('A+', 'A+ve'), ('B+', 'B+ve'),
-        ('O+', 'O+ve'), ('AB+', 'AB+ve'),('A-', 'A-ve'), ('B-', 'B-ve'),
+    student_blood_group = fields.Selection([('A+', 'A+ve'), ('B+', 'B+ve'), (
+        'O+', 'O+ve'), ('AB+', 'AB+ve'), ('A-', 'A-ve'), ('B-', 'B-ve'),
         ('O-', 'O-ve'), ('AB-', 'AB-ve')], string='Blood Group')
-    student_email = fields.Char(string='Student Email',required=True)
+    student_email = fields.Char(string='Student Email', required=True)
     profesor_id = fields.Many2one('profesor.record', string="Profesor")
     gender = fields.Selection(related="profesor_id.profesor_gender",
-        readonly=True)
+                              readonly=True)
     subject_ids = fields.Many2many(
         'subject.record', 'subject_table', 'sub_id', 'sub_name')
     school_name = fields.Char(string='School')
     sale_id = fields.Many2one('sale.order', string="Sale Order")
 
-    #onchange function to get age through entered dob
+    # onchange function to get age through entered dob
     @api.onchange('student_dob')
     def get_age(self):
         for record in self:
@@ -51,7 +54,7 @@ class StudentRecord(models.Model):
                 age = int(result.years)
                 record.student_age = age
 
-    #constrain for not allowing user to enter current date or future date
+    # constrain for not allowing user to enter current date or future date
     @api.constrains('student_dob')
     def validate_dob(self):
         if self.student_dob >= (date.today()):
@@ -70,12 +73,12 @@ class StudentRecord(models.Model):
     def validate_mail(self):
         if self.student_email:
             match = re.match('^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$',
-                self.student_email)
-            if match == None:
+                             self.student_email)
+            if match is None:
                 raise ValidationError('Not a valid E-mail ID')
 
     @api.model
-    #create method for genrating roll no
+    # create method for genrating roll no
     def create(self, vals):
         if vals.get('roll_no', ('New')) == ('New'):
             vals['roll_no'] = self.env['ir.sequence'].next_by_code(
@@ -104,16 +107,16 @@ class StudentRecord(models.Model):
             'school_management.profesor_record_form_view').id
         return result
 
-    #write method for email.
+    # write method for email.
     def write(self, values):
         super(StudentRecord, self).write(values)
         if 'student_email' in values:
             raise UserError("You cannot change email of a student.")
-        #unlink method
+        # unlink method
         unlink_record = self.env['student.record'].browse(27)
         unlink_record.unlink()
 
-    #depends method for school type
+    # depends method for school type
     @api.depends('school_type')
     def _auto_rank(self):
         for r in self:

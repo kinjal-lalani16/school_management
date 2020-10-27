@@ -21,18 +21,19 @@
         'views/test_view.xml',
         'views/res_config_views.xml',
 
-        #data files
+        # data files
         'data/ir_sequence_data.xml',
         'data/subject_corn.xml',
 
-        #wizard files
+        # wizard files
         'wizard/date_wizard_view.xml',
         'wizard/msg_wizard_views.xml',
 
-        #report files
+        # report files
         'report/student_report.xml',
         'report/student_report_view.xml',
         'report/profesor_view.xml',
+        'report/sale_order_report_view.xml',
     ],
 
 }

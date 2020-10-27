@@ -1,5 +1,6 @@
 from odoo import fields, models, api
 
+
 class ResConfigSetting(models.TransientModel):
     _inherit = 'res.config.settings'
 
@@ -7,15 +8,14 @@ class ResConfigSetting(models.TransientModel):
     team_condition = fields.Char(string='Team condition')
     student_id = fields.Many2one('student.record', string='Student')
 
-    #onchange method for condition
+    # onchange method for condition
     @api.onchange('condition')
     def check_condition(self):
         if not self.condition:
             self.team_condition = False
 
-
     @api.model
-    #get_values method to add field in res.config file
+    # get_values method to add field in res.config file
     def get_values(self):
         res = super(ResConfigSetting, self).get_values()
         ICPSudo = self.env['ir.config_parameter'].sudo()
@@ -26,16 +26,14 @@ class ResConfigSetting(models.TransientModel):
                 not self.env['student.record'].browse(student_id).exists():
             student_id = False
         res.update(condition=sale_condtion,
-            team_condition=sale_team_condition,
-            student_id=student_id)
+                   team_condition=sale_team_condition,
+                   student_id=student_id)
         return res
 
-    #get_vakues method to set field in res.config file
+    # get_vakues method to set field in res.config file
     def set_values(self):
         super(ResConfigSetting, self).set_values()
         ICPSudo = self.env['ir.config_parameter'].sudo()
         ICPSudo.set_param("sale.condition", self.condition)
-        ICPSudo.set_param("sale.team_condition",self.team_condition)
+        ICPSudo.set_param("sale.team_condition", self.team_condition)
         ICPSudo.set_param("school_management.student_id", self.student_id.id)
-
-
