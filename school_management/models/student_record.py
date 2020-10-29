@@ -86,25 +86,7 @@ class StudentRecord(models.Model):
             vals['school_name'] = 'L.J School'
 
         result = super(StudentRecord, self).create(vals)
-        # search method
-        student_female = self.env['student.record'].search(
-            [('student_gender', '=', 'f')])
-        student_male = self.env['student.record'].search(
-            [('student_gender', '=', 'm'), ('student_age', '=', 15)])
-        profesor_bg = self.env['profesor.record'].search(
-            [('profesor_blood_group', '=', 'AB+')])
-        # browse method
-        student_browse = self.env['student.record'].browse(27).exists()
-        # exists method
-        if student_browse.exists():
-            print("\n \n \nId exists in database")
-        else:
-            print("\n \n \nid does not exist in database")
-        # search_count()
-        student_count = self.env['student.record'].search_count([])
-        # ref method
-        sale_xml = self.env.ref(
-            'school_management.profesor_record_form_view').id
+
         return result
 
     # write method for email.

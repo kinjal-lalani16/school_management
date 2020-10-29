@@ -8,7 +8,7 @@ class Test(models.Model):
     _description = 'test details'
     _inherits = {'profesor.record': 'profesor_id'}
 
-    test_name = fields.Char(string="Test Name",required=True)
+    test_name = fields.Char(string="Test Name", required=True)
     test_date = fields.Char(string="Date")
-    profesor_id = fields.Many2one('profesor.record', string="Professor",
-        required=True)
+    profesor_id = fields.Many2one(
+        'profesor.record', string="Professor", required=True)

@@ -9,7 +9,8 @@
     'version': '13.0.1.0.0',
     'depends': ['base',
                 'sale_management',
-                'sale'
+                'sale',
+                'project'
                 ],
     'data': [
         'security/ir.model.access.csv',
@@ -20,6 +21,7 @@
         'views/sale_order_views.xml',
         'views/test_view.xml',
         'views/res_config_views.xml',
+        'views/project_project_views.xml',
 
         # data files
         'data/ir_sequence_data.xml',

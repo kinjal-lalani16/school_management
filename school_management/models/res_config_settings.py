@@ -1,4 +1,4 @@
-from odoo import fields, models, api
+from odoo import api, fields, models
 
 
 class ResConfigSetting(models.TransientModel):
@@ -18,10 +18,10 @@ class ResConfigSetting(models.TransientModel):
     # get_values method to add field in res.config file
     def get_values(self):
         res = super(ResConfigSetting, self).get_values()
-        ICPSudo = self.env['ir.config_parameter'].sudo()
-        sale_condtion = ICPSudo.get_param('sale.condition')
-        sale_team_condition = ICPSudo.get_param('sale.team_condition')
-        student_id = int(ICPSudo.get_param('school_management.student_id'))
+        icpsudo = self.env['ir.config_parameter'].sudo()
+        sale_condtion = icpsudo.get_param('sale.condition')
+        sale_team_condition = icpsudo.get_param('sale.team_condition')
+        student_id = int(icpsudo.get_param('school_management.student_id'))
         if student_id and \
                 not self.env['student.record'].browse(student_id).exists():
             student_id = False
@@ -33,7 +33,7 @@ class ResConfigSetting(models.TransientModel):
     # get_vakues method to set field in res.config file
     def set_values(self):
         super(ResConfigSetting, self).set_values()
-        ICPSudo = self.env['ir.config_parameter'].sudo()
-        ICPSudo.set_param("sale.condition", self.condition)
-        ICPSudo.set_param("sale.team_condition", self.team_condition)
-        ICPSudo.set_param("school_management.student_id", self.student_id.id)
+        icpsudo = self.env['ir.config_parameter'].sudo()
+        icpsudo.set_param("sale.condition", self.condition)
+        icpsudo.set_param("sale.team_condition", self.team_condition)
+        icpsudo.set_param("school_management.student_id", self.student_id.id)
