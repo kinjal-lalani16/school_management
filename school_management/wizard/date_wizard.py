@@ -35,8 +35,6 @@ class DateWizard(models.TransientModel):
             }
             order_list.append(order)
         data['kinjal'] = order_list
-        print('\n\n\n------------------------', data['kinjal'])
-        print('\n\n\n\n\n order details>>>>>>>>>>>>>>', order_details)
         return self.env.ref(
             'school_management.order_sale_report').report_action(
             self, data=data)

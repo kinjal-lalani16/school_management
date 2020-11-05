@@ -8,3 +8,5 @@ from . import product_product
 from . import test
 from . import res_config_settings
 from . import project_project
+from . import job_designation
+from . import job_application

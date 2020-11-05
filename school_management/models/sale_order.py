@@ -1,4 +1,6 @@
 from odoo import fields, models
+from functools import partial
+from odoo.tools.misc import formatLang
 
 
 class SaleOrder(models.Model):

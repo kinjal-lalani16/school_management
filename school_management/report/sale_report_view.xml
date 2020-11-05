@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <template id="sale_order_report">
+        <template id="report_sale_order">
             <t t-call="web.html_container">
                 <t t-call="web.external_layout">
                     <div class="page">
@@ -74,9 +74,6 @@
                                             <td class="text-right">
                                                 <span t-esc="o['partner_id']"/>
                                             </td>
-                                            <!-- <td class="text-right">
-                                                <span t-field="line[website_id]"/>
-                                            </td> -->
                                             <td class="text-right">
                                                 <span t-esc="o['user_id']"/>
                                             </td>
@@ -100,11 +97,9 @@
         </template>
 
 
-        <template id="report_sale">
+        <template id="sale_report">
             <t t-call="web.html_container">
-                <h1>WEb container </h1>
-                    <h6>Hiiiii</h6>
-                    <t t-call="school_management.sale_order_report"/>
+                <t t-call="school_management.report_sale_order"/>
             </t>
         </template>
     </data>

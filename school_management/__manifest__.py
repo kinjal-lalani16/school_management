@@ -10,7 +10,9 @@
     'depends': ['base',
                 'sale_management',
                 'sale',
-                'project'
+                'project',
+                'website',
+                'website_sale',
                 ],
     'data': [
         'security/ir.model.access.csv',
@@ -22,20 +24,26 @@
         'views/test_view.xml',
         'views/res_config_views.xml',
         'views/project_project_views.xml',
+        'views/job_designation_views.xml',
+        'views/job_application_views.xml',
+
+        # controller file
+        'views/job_details_views.xml',
 
         # data files
         'data/ir_sequence_data.xml',
         'data/subject_corn.xml',
+        'data/data.xml',
 
         # wizard files
         'wizard/date_wizard_view.xml',
         'wizard/msg_wizard_views.xml',
 
         # report files
-        'report/student_report.xml',
+        'report/report.xml',
         'report/student_report_view.xml',
         'report/profesor_view.xml',
-        'report/sale_order_report_view.xml',
+        'report/order_detail_report_view.xml',
     ],
 
 }

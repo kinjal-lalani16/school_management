@@ -28,5 +28,13 @@
             name="school_management.report_sale"
         />
 
+        <report
+            id="order_details"
+            string="Sale Report"
+            model="sale.order"
+            report_type="qweb-pdf"
+            file="school_management.order_detail_report"
+            name="school_management.order_detail_report"
+        />
     </data>
 </odoo>

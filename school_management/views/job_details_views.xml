@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="job_details" name="Job Details">
+    <t t-call="website.layout">
+     <div class="oe_structure">
+       <div class="container">
+         <br />
+         <center><h3>Job application</h3></center>
+         <br />
+           <table class="table-striped table">
+             <thead style="font-size: 23px;">
+             <tr>
+               <h6>
+                 <b>
+                   <th>Name</th>
+                   <th>Phone</th>
+                   <th>Email</th>
+                   <th><b>Designation</b></th>
+                 </b>
+               </h6>
+             </tr>
+             </thead>
+             <tbody>
+               <t t-foreach="details" t-as="job">
+                 <tr>
+                   <td><span t-esc="job.name"/></td>
+                   <td><span t-esc="job.phone"/></td>
+                   <td><span t-esc="job.email"/></td>
+                   <td><span t-esc="job.designation_id.name"/></td>
+                 </tr>
+               </t>
+             </tbody>
+           </table>
+       </div>
+     </div>
+    </t>
+  </template>
+  <template id="job_designation" name="Desigantion">
+    <t t-call="website.layout">
+      <div class="oe_structure">
+        <div class="container">
+          <br />
+          <center><h3>Designation</h3></center>
+          <br />
+            <table class="table-striped table">
+              <thead style="font-size: 23px;">
+                <tr>
+                  <h6>
+                    <b>
+                      <th>Designation</th>
+                    </b>
+                  </h6>
+                </tr>
+              </thead>
+              <tbody>
+                <t t-foreach="des_details" t-as="des">
+                  <tr>
+                    <td>
+                      <a t-attf-href="/designation/#{slug(des)}">
+                        <t t-esc="des.name"/>
+                      </a>
+                    </td>
+                  </tr>
+                </t>
+              </tbody>
+           </table>
+        </div>
+      </div>
+    </t>
+  </template>
+  <template id="create_form">
+    <t t-call="website.layout">
+        <t t-set="additional_title">Application Details</t>
+        <form action="/create_job_application" method="post">
+            <!-- <input type="hidden" name="designation_id" t-att-value="request.designation_id"/> -->
+          <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+          <div id="wrap">
+            <div class="or_structure">
+              <div class="container">
+                <div class="row">
+                  <div t-attf-class="form-group col-xl-6">
+                    <label class="col-form-label" for="name">Name</label>
+                    <input type="text" name="name" t-attf-class="form-control"/>
+                  </div>
+                  <div t-attf-class="form-group col-xl-6">
+                    <label class="col-form-label" for="email">Email</label>
+                    <input type="email" name="email" t-attf-class="form-control"/>
+                  </div>
+                  <div t-attf-class="form-group col-xl-6">
+                    <label class="col-form-label" for="email">Mobile No</label>
+                    <input type="number" name="phone" t-attf-class="form-control"/>
+                  </div>
+                </div>
+                <input type="text" name="designation_id"/>
+                <strong><h1><t t-esc="designation_id"/></h1></strong>
+                <div class="clearfix">
+                  <button type="submit" class="btn btn-primary float-right mb32 ">
+                          Confirm
+                      <span class="fa fa-long-arrow-right" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+    </t>
+  </template>
+  <template id="thank_you">
+    <h1>Thank You</h1>
+  </template>
+</odoo>
+
+
+

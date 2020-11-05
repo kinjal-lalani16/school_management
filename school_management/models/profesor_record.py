@@ -32,6 +32,7 @@ class ProfesorRecord(models.Model):
     student_ids = fields.One2many(
         'student.record', 'profesor_id', string="Student")
 
+    # Name get method to get phone number with profesor name.
     @api.model
     def name_get(self):
         profesor = []
