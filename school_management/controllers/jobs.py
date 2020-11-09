@@ -1,6 +1,7 @@
 from odoo import http
 from odoo.http import request
 
+
 class Job(http.Controller):
 
     @http.route('/jobs/', auth='public', type='http', website=True)
@@ -22,10 +23,12 @@ class desigantion(http.Controller):
     @http.route(['/designation/<model("job.designation"):jobs>'], type='http', auth='public', website=True)
     def get_click(self, jobs, **kwargs):
         print('\n\n----------jobs-----------', jobs)
-        return request.render('school_management.create_form', {})
+        return request.render('school_management.create_form', {'job': jobs.id})
 
     @http.route('/create_job_application', auth='public', type='http', website=True)
     def create_application(self, **kwargs):
         request.env['job.application'].sudo().create(kwargs)
-        print('\n\n\n---------Args----------\n\n\n', kwargs)
+        # des_id = request.env['job.designation'].sudo().browse(kwargs[
+        #     'designation_id'])
+        # des_id.sudo().write({'application_ids': [(0, 0, (kwargs))]})
         return request.render('school_management.thank_you', {})

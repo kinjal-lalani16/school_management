@@ -47,6 +47,7 @@
             </field>
         </record>
 
+
         <!-- Form view -->
         <record id="subject_record_form_view" model="ir.ui.view">
             <field name="name">Subject</field>
@@ -56,6 +57,8 @@
                     <header>
                         <button name="create_profesor" string="Create profesor"
                             class="btn-primary" type="action"/>
+                        <button name="send_email" string="Send Email"
+                            class="btn-primary" type="object"/>
                     </header>
                     <sheet>
                         <div name="button_box" class="oe_button_box">

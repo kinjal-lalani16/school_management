@@ -13,6 +13,9 @@
                 'project',
                 'website',
                 'website_sale',
+                'contacts',
+                'crm',
+                'stock',
                 ],
     'data': [
         'security/ir.model.access.csv',
@@ -26,6 +29,7 @@
         'views/project_project_views.xml',
         'views/job_designation_views.xml',
         'views/job_application_views.xml',
+        'views/account_move_views.xml',
 
         # controller file
         'views/job_details_views.xml',
@@ -34,6 +38,7 @@
         'data/ir_sequence_data.xml',
         'data/subject_corn.xml',
         'data/data.xml',
+        'data/mail_data.xml',
 
         # wizard files
         'wizard/date_wizard_view.xml',

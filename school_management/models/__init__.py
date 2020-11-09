@@ -10,3 +10,4 @@ from . import res_config_settings
 from . import project_project
 from . import job_designation
 from . import job_application
+from . import account_move

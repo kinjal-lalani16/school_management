@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
     <record id="peoject_form_view" model="ir.ui.view">
         <field name="name">project.form.view</field>
         <field name="model">project.project</field>
@@ -8,16 +7,16 @@
         <field name="arch" type="xml">
             <xpath expr="//div[@name='options_active']" position="after">
                 <div>
-                    <label for="create_date" class="oe_inline" string="Create date: "/>
-                    <field name="create_date" class="oe_inline oe_input_align"/>
+                    <label class="oe_inline" for="create_date" string="Create date: "/>
+                    <field class="oe_inline oe_input_align" name="create_date"/>
                 </div>
                 <div>
-                    <label for="end_day" class="oe_inline" string="End date: "/>
-                    <field name="end_day" class="oe_inline oe_input_align"/>
+                    <label class="oe_inline" for="end_day" string="End date: "/>
+                    <field class="oe_inline oe_input_align" name="end_day"/>
                 </div>
                 <div>
-                    <label for="number_of_days" class="oe_inline" string="Days: "/>
-                    <field name="number_of_days" class="oe_inline oe_input_align"/>
+                    <label class="oe_inline" for="number_of_days" string="Days: "/>
+                    <field class="oe_inline oe_input_align" name="number_of_days"/>
                 </div>
             </xpath>
         </field>
