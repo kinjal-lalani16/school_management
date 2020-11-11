@@ -45,9 +45,7 @@
                 </p>
             </field>
         </record>
-
-        <menuitem id="menu_school" name="School"/>
-        <menuitem id="job_application" name="Application" parent="menu_school"
+        <menuitem id="job_application" name="Application" parent="school_management.menu_school"
             action="action_view_job_applications"/>
     </data>
 </odoo>

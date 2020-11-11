@@ -108,8 +108,7 @@
         </record>
 
         <!-- Menu -->
-        <menuitem id="menu_school" name="School"/>
-        <menuitem id="school_subject" name="Subjects" parent="menu_school"
+        <menuitem id="school_subject" name="Subjects" parent="school_management.menu_school"
          action="action_view_subjects"/>
     </data>
 </odoo>

@@ -44,8 +44,7 @@
         </record>
 
         <!-- Action -->
-        <menuitem id="menu_school" name="School"/>
-        <menuitem id="school_test" name="Test" parent="menu_school" action="action_view_test"/>
+        <menuitem id="school_test" name="Test" parent="school_management.menu_school" action="action_view_test"/>
     </data>
 </odoo>
 

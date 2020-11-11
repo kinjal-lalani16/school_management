@@ -121,8 +121,7 @@
         </record>
 
         <!-- Action -->
-        <menuitem id="menu_school" name="School"/>
-        <menuitem id="school_student" name="Students" parent="menu_school"
+        <menuitem id="school_student" name="Students" parent="school_management.menu_school"
          action="action_view_students"/>
     </data>
 </odoo>

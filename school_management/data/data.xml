@@ -1,29 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-   <data>
-      <record id="test_menu" model="website.menu">
-        <field name="name">Application</field>
-        <field name="url">/jobs</field>
-        <field name="parent_id" ref="website.main_menu"/>
-        <field name="sequence" type="int">80</field>
-      </record>
+  <data>
+    <record id="test_menu" model="website.menu">
+      <field name="name">Application</field>
+      <field name="url">/jobs</field>
+      <field name="parent_id" ref="website.main_menu"/>
+      <field name="sequence" type="int">80</field>
+    </record>
 
-      <record id="des_menu" model="website.menu">
-        <field name="name">Designaion</field>
-        <field name="url">/desig</field>
-        <field name="sequence" type="int">81</field>
-      </record>
-
-      <!-- <record id="school_management.model_subject" model="ir.model">
-            <field name="website_form_access" eval="True"/>
-            <field name="website_form_label">Subject Record</field>
-        </record>
-        <function model="ir.model.fields" name="formbuilder_whitelist">
-            <value>subject.record</value>
-            <value eval="[
-                'client_order_ref',
-            ]"/>
-        </function> -->
-
-   </data>
+    <record id="des_menu" model="website.menu">
+      <field name="name">Designation</field>
+      <field name="url">/desig</field>
+      <field name="parent_id" ref="website.main_menu"/>
+      <field name="sequence" type="int">81</field>
+    </record>
+  </data>
 </odoo>

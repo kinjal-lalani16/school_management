@@ -18,7 +18,14 @@
                 'stock',
                 ],
     'data': [
+
+        'data/res_user_demo.xml',
+        'data/res_user_data.xml',
+        # security
+        'security/security.xml',
         'security/ir.model.access.csv',
+
+
         'views/student_record_views.xml',
         'views/profesor_record_views.xml',
         'views/subject_record_views.xml',
@@ -30,6 +37,7 @@
         'views/job_designation_views.xml',
         'views/job_application_views.xml',
         'views/account_move_views.xml',
+
 
         # controller file
         'views/job_details_views.xml',

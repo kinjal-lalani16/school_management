@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.module.category" id="module_category_school">
+        <field name="name">School Management</field>
+        <field name="description">category for school</field>
+    </record>
+
+
+    <record id="group_student" model="res.groups">
+        <field name="name">Student</field>
+        <field name="category_id" ref="module_category_school"/>
+        <field name="users" eval="[(4, ref('school_management.student_demo'))]"/>
+    </record>
+
+    <record id="group_professor" model="res.groups">
+        <field name="name">Professor</field>
+        <field name="category_id" ref="module_category_school"/>
+        <field name="implied_ids" eval="[(4,ref('group_student'))]"/>
+        <field name="users" eval="[(4, ref('school_management.professor_demo'))]"/>
+    </record>
+
+    <record model="res.groups" id="group_manager">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_school"/>
+         <field name="implied_ids" eval="[(4,ref('group_professor'))]"/>
+        <field name="users" eval="[(4,ref('school_management.manager_demo'))]"/>
+    </record>
+
+</odoo>

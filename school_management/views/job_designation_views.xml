@@ -60,8 +60,7 @@
             </field>
         </record>
         <!-- Action -->
-        <menuitem id="menu_school" name="School"/>
-        <menuitem id="job_des" name="Designation" parent="menu_school"
+        <menuitem id="job_des" name="Designation" parent="school_management.menu_school"
             action="action_view_job_designation"/>
     </data>
 </odoo>

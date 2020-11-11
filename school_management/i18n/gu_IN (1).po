@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-09 12:37+0000\n"
-"PO-Revision-Date: 2020-11-09 12:37+0000\n"
+"POT-Creation-Date: 2020-11-11 10:30+0000\n"
+"PO-Revision-Date: 2020-11-11 10:30+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -30,14 +30,14 @@ msgstr ""
 msgid ""
 "<br/>\n"
 "                        Age:"
-msgstr "umar:"
+msgstr ""
 
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.report_student_document
 msgid ""
 "<br/>\n"
 "                        Date of Birth:"
-msgstr "Janam tarikh:"
+msgstr ""
 
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.report_student_document
@@ -72,17 +72,17 @@ msgstr ""
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.report_profesor_document
 msgid "<strong>Department:</strong>"
-msgstr "Vibhag"
+msgstr ""
 
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.report_profesor_document
 msgid "<strong>Description:</strong>"
-msgstr "Varnan"
+msgstr ""
 
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.order_detail_document
 msgid "<strong>Order Date</strong>"
-msgstr "Hukum Tarikh"
+msgstr ""
 
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.order_detail_document
@@ -92,17 +92,17 @@ msgstr ""
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.report_profesor_document
 msgid "<strong>Profesor Name:</strong>"
-msgstr "Shikshak nu naam/home/odoo/Downloads/gu_IN.po"
+msgstr ""
 
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.report_profesor_document
 msgid "<strong>Subject:</strong>"
-msgstr "Vishay"
+msgstr ""
 
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.order_detail_document
 msgid "<strong>Subtotal</strong>"
-msgstr "Kul Sarvaro"
+msgstr ""
 
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.order_detail_document
@@ -112,12 +112,12 @@ msgstr ""
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.order_detail_document
 msgid "<strong>Taxes</strong>"
-msgstr "karvero"
+msgstr ""
 
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.order_detail_document
 msgid "<strong>Total</strong>"
-msgstr "sarvaro"
+msgstr ""
 
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.order_detail_document
@@ -151,7 +151,7 @@ msgstr ""
 #. module: school_management
 #: model:ir.model.fields,field_description:school_management.field_product_product__actual_price
 msgid "Actual Price"
-msgstr "Sachi kimmat"
+msgstr ""
 
 #. module: school_management
 #: model:ir.model.fields,field_description:school_management.field_profesor_record__profesor_age
@@ -200,18 +200,18 @@ msgstr ""
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.view_date_wizard
 msgid "Cancel"
-msgstr "radd"
+msgstr ""
 
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.msg_wizard_view_form
 msgid "Close"
-msgstr "bandh kro"
+msgstr ""
 
 #. module: school_management
 #: model:ir.model.fields,field_description:school_management.field_res_config_settings__condition
 #: model_terms:ir.ui.view,arch_db:school_management.res_config_settings_view_order_form
 msgid "Condition"
-msgstr "sharat"
+msgstr ""
 
 #. module: school_management
 #: model:ir.model,name:school_management.model_res_config_settings
@@ -221,12 +221,12 @@ msgstr ""
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.profesor_record_form_view_base
 msgid "Create Student"
-msgstr "Vidhyarthi bnao"
+msgstr ""
 
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.peoject_form_view
 msgid "Create date:"
-msgstr "tarikh bnao"
+msgstr ""
 
 #. module: school_management
 #: model_terms:ir.actions.act_window,help:school_management.action_view_job_designation
@@ -251,17 +251,17 @@ msgstr ""
 #. module: school_management
 #: model_terms:ir.actions.act_window,help:school_management.action_view_students
 msgid "Create new student"
-msgstr ""
+msgstr "Navo vidhyarthi bnao"
 
 #. module: school_management
 #: model_terms:ir.actions.act_window,help:school_management.action_view_subjects
 msgid "Create new subject"
-msgstr ""
+msgstr "Navo vishay bnao"
 
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.subject_record_form_view
 msgid "Create profesor"
-msgstr ""
+msgstr "Nava shikshak bnao"
 
 #. module: school_management
 #: model:ir.model.fields,field_description:school_management.field_date_wizard__create_uid
@@ -333,15 +333,11 @@ msgid "Department:"
 msgstr ""
 
 #. module: school_management
-#: model:website.menu,name:school_management.des_menu
-msgid "Designaion"
-msgstr ""
-
-#. module: school_management
 #: model:ir.actions.act_window,name:school_management.action_view_job_designation
 #: model:ir.model.fields,field_description:school_management.field_job_application__designation_id
 #: model:ir.ui.menu,name:school_management.job_des
 #: model_terms:ir.ui.view,arch_db:school_management.job_designation
+#: model:website.menu,name:school_management.des_menu
 msgid "Designation"
 msgstr ""
 
@@ -654,6 +650,7 @@ msgstr ""
 
 #. module: school_management
 #: model:ir.model.fields,field_description:school_management.field_test_test__profesor_id
+#: model:res.groups,name:school_management.group_professor
 msgid "Professor"
 msgstr ""
 
@@ -710,6 +707,11 @@ msgid "School"
 msgstr ""
 
 #. module: school_management
+#: model:ir.module.category,name:school_management.module_category_school
+msgid "School Management"
+msgstr ""
+
+#. module: school_management
 #: model:ir.model.fields,field_description:school_management.field_student_record__school_type
 msgid "School Type"
 msgstr ""
@@ -738,6 +740,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:school_management.res_config_settings_view_order_form
 #: model_terms:ir.ui.view,arch_db:school_management.student_record_form_view
 #: model_terms:ir.ui.view,arch_db:school_management.student_record_tree_view
+#: model:res.groups,name:school_management.group_student
 msgid "Student"
 msgstr ""
 
@@ -842,6 +845,11 @@ msgstr ""
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.thank_you
 msgid "Your message has been sent successfully."
+msgstr ""
+
+#. module: school_management
+#: model:ir.module.category,description:school_management.module_category_school
+msgid "category for school"
 msgstr ""
 
 #. module: school_management
