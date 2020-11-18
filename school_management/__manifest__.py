@@ -16,6 +16,7 @@
                 'contacts',
                 'crm',
                 'stock',
+                'website_form',
                 ],
     'data': [
 
@@ -40,7 +41,7 @@
 
 
         # controller file
-        'views/job_details_views.xml',
+        'views/templates.xml',
 
         # data files
         'data/ir_sequence_data.xml',
@@ -56,6 +57,7 @@
         'report/report.xml',
         'report/student_report_view.xml',
         'report/profesor_view.xml',
+        'report/sale_report_view.xml',
         'report/order_detail_report_view.xml',
     ],
 

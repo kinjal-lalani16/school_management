@@ -24,8 +24,8 @@
             string="Order Details"
             model="date.wizard"
             report_type="qweb-pdf"
-            file="school_management.report_sale"
-            name="school_management.report_sale"
+            file="school_management.sale_report"
+            name="school_management.sale_report"
         />
 
         <report

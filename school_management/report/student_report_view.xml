@@ -6,7 +6,7 @@
                 <t t-foreach="docs" t-as="doc">
                     <center>
                         <h2>Student Details</h2>
-                        Name:<t t-esc="doc.student_name"/><br></br>
+                        Name:<t t-esc="doc.student_id"/><br></br>
                         Date of Birth:<t t-esc="doc.student_dob"/><br></br>
                         Age:<t t-esc="doc.student_age"/><br></br>
                         Email:<t t-esc="doc.student_email"/>

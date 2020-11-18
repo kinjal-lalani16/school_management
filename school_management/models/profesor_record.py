@@ -12,10 +12,10 @@ from odoo.exceptions import ValidationError
 class ProfesorRecord(models.Model):
 
     _name = "profesor.record"
-    # _rec_name = "profesor_name"
+    _rec_name = "profesor_id"
     _description = "profesor"
 
-    name = fields.Char(string="Professor Name", required=True)
+    profesor_id = fields.Many2one('res.partner', string="Professor Name", required=True)
     profesor_department = fields.Char(string="Department", required=True)
     profesor_dob = fields.Date(string="Date of Birth", required=True)
     profesor_phone_number = fields.Char(string="Phone Number")
@@ -33,16 +33,17 @@ class ProfesorRecord(models.Model):
         'student.record', 'profesor_id', string="Student")
 
     # Name get method to get phone number with profesor name.
-    @api.model
-    def name_get(self):
-        profesor = []
-        for i in self:
-            if self._context.get('profesor_id'):
-                name = i.profesor_phone_number + i.name
-                profesor.append((i.id, name))
-                return profesor
-            else:
-                return super(ProfesorRecord, self).name_get()
+    # @api.model
+    # def name_get(self):
+    #     profesor = []
+    #     for i in self:
+    #         if i.profesor_phone_number:
+    #             if self._context.get('profesor_id'):
+    #                 name = i.profesor_phone_number + i.name
+    #                 profesor.append((i.id, name))
+    #                 return profesor
+    #             else:
+    #                 return super(ProfesorRecord, self).name_get()
 
     # onchange function to get age through entered dob
 
@@ -90,7 +91,7 @@ class ProfesorRecord(models.Model):
         for i in student_record:
             email_list.append(i.student_email)
         student = self.env['student.record'].create({
-            'student_name': 'Kinjal',
+            'student_id': 'Kinjal',
             'last_name': 'Lalani',
             'student_dob': '2005-12-10',
             'student_email': 'kinjal123@gmail.com'

@@ -17,7 +17,7 @@
         </record>
         <record id="manager_demo" model="res.users">
             <field name="partner_id" ref="school_management.manager_res"/>
-            <field name="login">shreya</field>
+            <field name="login">shreya123@gmail.com</field>
             <field name="password">shreya</field>
             <field name="signature" type="xml"><span>-- <br/>+Ms Lalani</span></field>
             <field name="company_id" ref="base.main_company"/>

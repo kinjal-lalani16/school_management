@@ -8,7 +8,11 @@ access_profesor_record,access.profesor.record,model_profesor_record,school_manag
 access_profesor_record_manager,access.profesor.record.manager,model_profesor_record,school_management.group_manager,1,1,1,1
 
 access_subject_record,access.subject.record,model_subject_record,school_management.group_professor,1,0,0,0
-access_subject_record_manager,access.subject.record.manager,model_subject_record,school_management.group_manager,1,0,0,0
+access_subject_record_manager,access.subject.record.manager,model_subject_record,school_management.group_manager,1,1,1,1
+
+access_subject_record_student,access.subject.record.manager,model_subject_record,school_management.group_student,1,0,0,0
+
+
 
 access_test_test,access.test.test,model_test_test,base.group_user,1,1,1,1
 access_test_test_manager,access.test.test.manager,model_test_test,school_management.group_manager,1,1,1,1

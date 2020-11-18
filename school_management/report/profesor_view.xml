@@ -45,7 +45,7 @@
                                     <t t-foreach="doc.student_ids" t-as="line">
                                         <tr t-att-class="'bg-200 font-weight-bold o_line_section'">
                                             <td class="text-left">
-                                                <span t-field="line.student_name"/>
+                                                <span t-field="line.student_id"/>
                                             </td>
                                             <td class="text-right">
                                                 <span t-field="line.last_name"/>

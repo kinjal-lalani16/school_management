@@ -66,7 +66,7 @@
                                                 <span t-esc="o['name']"/>
                                             </td>
                                             <td class="text-right">
-                                                <span t-esc="o['date_order']"/>
+                                                <span t-esc="o['date_order']" widget="date"/>
                                             </td>
                                             <td class="text-right">
                                                 <span t-esc="o['expected_date']"/>

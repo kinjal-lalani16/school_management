@@ -13,7 +13,7 @@ from odoo.exceptions import UserError, ValidationError
 class StudentRecord(models.Model):
 
     _name = 'student.record'
-    _rec_name = 'student_name'
+    _rec_name = 'student_id'
     _description = 'student details'
 
     roll_no = fields.Char(string='Student Roll No', required=True, copy=False,
@@ -21,7 +21,7 @@ class StudentRecord(models.Model):
                               'draft': [('readonly', False)]}, index=True,
                           default=lambda self: ('New'))
 
-    student_name = fields.Char(string='Name', required=True)
+    student_id = fields.Many2one('res.partner', string='Name', required=True)
     last_name = fields.Char(string="Last Name", required=True)
     student_photo = fields.Binary(string="Photo")
     student_age = fields.Integer(string="Age", readonly=False)

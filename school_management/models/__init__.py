@@ -11,3 +11,4 @@ from . import project_project
 from . import job_designation
 from . import job_application
 from . import account_move
+#from . import partner_record

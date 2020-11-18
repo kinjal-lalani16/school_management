@@ -9,7 +9,7 @@
             <!-- <field name="priority" eval="8" />-->
             <field name="arch" type="xml">
                 <tree string="Student">
-                    <field name="student_name" />
+                    <field name="student_id" />
                     <field name="last_name" />
                     <field name="student_age" />
                     <field name="student_gender"/>
@@ -31,7 +31,7 @@
                 <kanban>
                     <field name='id'/>
                     <field name="student_photo"/>
-                    <field name="student_name"/>
+                    <field name="student_id"/>
                     <field name="student_email"/>
                     <field name="student_dob"/>
                     <templates>
@@ -46,7 +46,7 @@
                                     <ul>
                                         <li>
                                             <strong>
-                                                <field name="student_name"/>
+                                                <field name="student_id"/>
                                             </strong>
                                         </li>
                                         <li>Email:
@@ -80,7 +80,7 @@
                                 <group>
                                     <field name="student_photo" widget="image"
                                         class="oe_left oe_avatar" />
-                                    <field name="student_name"/>
+                                    <field name="student_id"/>
                                     <field name="last_name"/>
                                     <field name="profesor_id" context="{'profesor_id':'True'}"/>
                                     <field name="gender" readonly="1"/>
@@ -121,6 +121,7 @@
         </record>
 
         <!-- Action -->
+        <menuitem id="menu_school" name="school" />
         <menuitem id="school_student" name="Students" parent="school_management.menu_school"
          action="action_view_students"/>
     </data>
