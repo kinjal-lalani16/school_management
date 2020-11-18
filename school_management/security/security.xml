@@ -40,7 +40,7 @@
         <field eval="True" name="perm_write"/>
         <field eval="False" name="perm_create"/>
         <field eval="False" name="perm_unlink"/>
-       <field name="domain_force">[('subject_ids','in',user.partner_id.id)]</field>
+       <field name="domain_force">[]</field>
     </record>
 
     <record id="profesor_rule" model="ir.rule">

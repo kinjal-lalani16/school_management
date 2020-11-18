@@ -25,6 +25,7 @@
         # security
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/calender_security.xml',
 
 
         'views/student_record_views.xml',
