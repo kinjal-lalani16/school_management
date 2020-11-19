@@ -23,6 +23,25 @@
             </field>
         </record>
 
+        <!-- Search view -->
+         <record id="student_record_search_view" model="ir.ui.view">
+            <field name="name">student.record.search.view</field>
+            <field name="model">student.record</field>
+            <field name="arch" type="xml">
+                <search string="Search student">
+                    <field name="student_id" filter_domain="['|', ('student_id', 'ilike', self), ('student_age', 'ilike', self)]"/>
+                    <field name="student_age"/>
+                    <separator/>
+                    <filter string="Male" domain="[('student_gender', '=', 'm')]" name="male"/>
+                    <filter string="Female" domain="[('student_gender', '=', 'f')]" name="female"/>
+                    <filter string="Others" domain="[('student_gender', '=', 'o')]" name="others"/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Gender" name="gender" context="{'group_by': 'student_gender'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
         <!-- Kanban view -->
         <record id="student_record_kanban_view" model="ir.ui.view">
             <field name="name">student.record.kanban.view</field>

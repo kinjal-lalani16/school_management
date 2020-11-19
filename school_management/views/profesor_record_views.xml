@@ -23,7 +23,7 @@
                                 <group>
                                     <field name="profesor_email"
                                         placeholder="example123@gmail.com"/>
-                                    <field name="profesor_phone_number"/>
+                                    <field name="profesor_phone_number" required="1"/>
                                     <field name="profesor_gender"/>
                                     <field name="profesor_age"/>
                                     <field name="profesor_blood_group"/>

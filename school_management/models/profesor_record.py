@@ -33,17 +33,14 @@ class ProfesorRecord(models.Model):
         'student.record', 'profesor_id', string="Student")
 
     # Name get method to get phone number with profesor name.
-    # @api.model
-    # def name_get(self):
-    #     profesor = []
-    #     for i in self:
-    #         if i.profesor_phone_number:
-    #             if self._context.get('profesor_id'):
-    #                 name = i.profesor_phone_number + i.name
-    #                 profesor.append((i.id, name))
-    #                 return profesor
-    #             else:
-    #                 return super(ProfesorRecord, self).name_get()
+    @api.model
+    def name_get(self):
+        profesor_list = []
+        for i in self:
+            if self._context.get('profesor_id'):
+                name = i.profesor_phone_number + ' ' + i.profesor_id.name
+                profesor_list.append((i.id, name))
+        return profesor_list
 
     # onchange function to get age through entered dob
 

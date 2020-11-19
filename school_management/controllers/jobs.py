@@ -42,23 +42,19 @@ class desigantion(http.Controller):
         values = {
             'error': {},
             'error_message': [],
-            'condition':True
+            'condition': True
         }
         if kwargs and request.httprequest.method == 'POST':
             error, error_message = self.details_form_validate(kwargs)
-            print("\n\n----------------Error-----------------\n\n", error)
-            print("\n\n-----------Error Message-------\n\n", error_message)
 
             values.update({'error': error, 'error_message': error_message})
             values.update(kwargs)
             values.update({'condition' : values.get('error').get('name',False)})
-            print("\n\n----------------values------------\n\n", values)
             if not error:
                 request.env['job.application'].sudo().create(kwargs)
                 # response = request.render("portal.portal_my_details", values)
                 return request.render('school_management.thank_you', {})
             else:
-                print ("valuessssssssssssssssssssss", values)
                 return request.render('school_management.create_form', values)
             # else:
             #     return request.redirect('/jobs')
