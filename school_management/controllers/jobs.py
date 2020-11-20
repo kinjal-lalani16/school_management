@@ -29,7 +29,7 @@ class desigantion(http.Controller):
         values = {
             'error': {},
             'error_message': [],
-            'condition':True
+            'condition': True
         }
         values.update({'job': jobs.id})
         return request.render(
@@ -49,10 +49,9 @@ class desigantion(http.Controller):
 
             values.update({'error': error, 'error_message': error_message})
             values.update(kwargs)
-            values.update({'condition' : values.get('error').get('name',False)})
+            values.update({'condition': values.get('error').get('name', False)})
             if not error:
                 request.env['job.application'].sudo().create(kwargs)
-                # response = request.render("portal.portal_my_details", values)
                 return request.render('school_management.thank_you', {})
             else:
                 return request.render('school_management.create_form', values)
@@ -67,18 +66,15 @@ class desigantion(http.Controller):
 
 
     def details_form_validate(self, data):
-        print("\n\n\n----------Hello---------\n\n\n")
         error = dict()
         error_message = []
 
         # Validation
         for field_name in self.MANDETORY_FIELD:
-            print("\n\n\n--------Field_name-------\n\n\n", field_name)
             if not data.get(field_name):
                 print("\n\n----missing-----\n\n")
                 error[field_name] = 'missing'
         if [err for err in error.values() if err == 'missing']:
-            print("\n\n----Required fields are empty------\n\n")
             error_message.append(('Some required fields are empty.'))
 
         return error, error_message
