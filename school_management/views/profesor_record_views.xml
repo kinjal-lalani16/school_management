@@ -126,7 +126,7 @@
             <field name="arch" type="xml">
                 <field name="profesor_department" position="after">
                     <field name="profesor_dob"/>
-                    <field name="subject_id" />
+                    <field name="subject_id" widget="selection"/>
                     <field name="subject_description"/>
                 </field>
             </field>

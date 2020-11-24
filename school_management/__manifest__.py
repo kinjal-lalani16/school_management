@@ -43,10 +43,11 @@
 
         # controller file
         'views/templates.xml',
+        'views/student_template_views.xml',
 
         # data files
         'data/ir_sequence_data.xml',
-        'data/subject_corn.xml',
+        'data/corn_jobs.xml',
         'data/data.xml',
         'data/mail_data.xml',
 
@@ -60,6 +61,7 @@
         'report/profesor_view.xml',
         'report/sale_report_view.xml',
         'report/order_detail_report_view.xml',
+        'report/invoice_report_views.xml',
     ],
 
 }

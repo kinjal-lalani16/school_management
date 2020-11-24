@@ -68,7 +68,7 @@ class desigantion(http.Controller):
     def details_form_validate(self, data):
         error = dict()
         error_message = []
-
+        print('\n\n-----data----\n\n', data)
         # Validation
         for field_name in self.MANDETORY_FIELD:
             if not data.get(field_name):

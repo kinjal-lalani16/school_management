@@ -9,7 +9,8 @@
             <xpath expr="//form/header" position="inside">
                 <button name="action_send" string="Send mail" class="oe_highlight"
                                 type="object"
-                                attrs="{'invisible': [('state', '!=', 'posted')]}"/>
+                                attrs="{'invisible': [('state', '!=', 'posted')]}"
+                                context="{'invoice': True}"/>
             </xpath>
             <field name="invoice_date" position="after">
                 <field name="invoice_date_due" attrs="{'invisible': [
