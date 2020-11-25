@@ -44,6 +44,7 @@
         # controller file
         'views/templates.xml',
         'views/student_template_views.xml',
+        # 'views/job_xml_template.xml',
 
         # data files
         'data/ir_sequence_data.xml',

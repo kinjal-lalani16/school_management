@@ -46,4 +46,3 @@ class AccountMove(models.Model):
                 diff = (records.invoice_date_due - current_date).days
                 if diff == 2:
                     records.action_send()
-                    print('-------------Email sent-----------')

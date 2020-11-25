@@ -36,27 +36,25 @@ class desigantion(http.Controller):
             'school_management.create_form', values)
 
 
-    @http.route('/create_job_application', auth='user', type='http',
-                website=True)
-    def create_application(self, **kwargs):
-        values = {
-            'error': {},
-            'error_message': [],
-            'condition': True
-        }
-        if kwargs and request.httprequest.method == 'POST':
-            error, error_message = self.details_form_validate(kwargs)
+    # @http.route('/create_job_application', auth='user', type='http',
+    #             website=True)
+    # def create_application(self, **kwargs):
+    #     values = {
+    #         'error': {},
+    #         'error_message': [],
+    #         'condition': True
+    #     }
+    #     if kwargs and request.httprequest.method == 'POST':
+    #         error, error_message = self.details_form_validate(kwargs)
 
-            values.update({'error': error, 'error_message': error_message})
-            values.update(kwargs)
-            values.update({'condition': values.get('error').get('name', False)})
-            if not error:
-                request.env['job.application'].sudo().create(kwargs)
-                return request.render('school_management.thank_you', {})
-            else:
-                return request.render('school_management.create_form', values)
-            # else:
-            #     return request.redirect('/jobs')
+    #         values.update({'error': error, 'error_message': error_message})
+    #         values.update(kwargs)
+    #         values.update({'condition': values.get('error').get('name', False)})
+    #         if not error:
+    #             request.env['job.application'].sudo().create(kwargs)
+    #             return request.render('school_management.thank_you', {})
+    #         else:
+    #             return request.render('school_management.create_form', values)
 
 
 
@@ -68,13 +66,25 @@ class desigantion(http.Controller):
     def details_form_validate(self, data):
         error = dict()
         error_message = []
-        print('\n\n-----data----\n\n', data)
         # Validation
         for field_name in self.MANDETORY_FIELD:
             if not data.get(field_name):
-                print("\n\n----missing-----\n\n")
                 error[field_name] = 'missing'
         if [err for err in error.values() if err == 'missing']:
             error_message.append(('Some required fields are empty.'))
 
         return error, error_message
+
+    @http.route('/editable_form/<model("job.designation"):job>', auth="user", type="http", website=True)
+    def edit_form(self, job, **kwargs):
+
+        return request.render('school_management.edit_form', {
+            'name': job.name,
+            'id': job.id})
+
+    @http.route('/edit_job_details', auth="user", type="http", website=True)
+    def edit_details(self, **kwargs):
+        des_id = request.env['job.designation'].sudo().browse(kwargs[
+            'designation_id'])
+        des_id.sudo().write({'name': kwargs['name']})
+        return request.render('school_management.thank_you', {})

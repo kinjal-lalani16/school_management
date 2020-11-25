@@ -31,7 +31,6 @@ class Student(CustomerPortal):
             step=2
         )
         student = students.search([], order=order, limit=2, offset=pager['offset'])
-        print('\n\n\n-----------student-----------\n\n\n', student)
         values.update({
             'student': student,
             'page_name': 'student',
