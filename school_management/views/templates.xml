@@ -66,10 +66,13 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a class="btn btn-primary float-right d-none d-xl-inline-block"
+                                        <!-- <a class="btn btn-primary float-right d-none d-xl-inline-block"
                                         t-attf-href="/editable_form/#{slug(des)}">
                                             <span>Edit</span>
-                                        </a>
+                                        </a> -->
+                                        <button class="btn btn-primary float-right d-none d-xl-inline-block edit" type="action">
+                                            Edit
+                                        </button>
                                     </td>
                                 </tr>
                             </t>
@@ -77,9 +80,34 @@
                     </table>
                 </div>
             </div>
+            <div class="modal fade" id="des_pop_up" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Designation</h3>
+                            <button type="button" class="close" data-dismiss="modal">&amp;times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/edit_job_details/"
+                                class="s_website_form container-fluid mt32" data-editable-form="false" data-model_name="job.designation" enctype="multipart/form-data" method="post" role="form" data-success_page="
+                                /contactus-thank-you">
+                                <input name="csrf_token" t-att-value="request.csrf_token()" type="hidden"/>
+                                <input name="designation_id" t-att-value=
+                                    "id" type="hidden"/>
+                                <div class="form-group row form-field o_website_form_required_custom o_has_error">
+                                    <label class="col-lg-3 col-md-4 col-form-label" for="name">Designation</label>
+                                    <div class="col-lg-7 col-md-8">
+                                        <input class="form-control o_website_form_input" name="name" required="required" t-att-value="name" type="text"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </t>
     </template>
-     <template id="edit_form">
+    <template id="edit_form">
         <t t-call="website.layout">
             <t t-set="additional_title">Application edit Details</t>
             <div id="wrap">

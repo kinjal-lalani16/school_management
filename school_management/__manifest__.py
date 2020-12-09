@@ -27,7 +27,7 @@
         'security/ir.model.access.csv',
         'security/calender_security.xml',
 
-
+        'views/assets.xml',
         'views/student_record_views.xml',
         'views/profesor_record_views.xml',
         'views/subject_record_views.xml',
