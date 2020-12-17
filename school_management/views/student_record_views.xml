@@ -23,6 +23,41 @@
             </field>
         </record>
 
+        <!-- Graph view -->
+        <record id="student_record_graph_view" model="ir.ui.view">
+            <field name="name">student.graph.view</field>
+            <field name="model">student.record</field>
+            <field name="arch" type="xml">
+                <graph string="Student">
+                    <field name="student_id"/>
+                    <field name="student_age"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Pivot view -->
+        <record model="ir.ui.view" id="student_record_pivot_view">
+            <field name="name">student.pivot.view</field>
+            <field name="model">student.record</field>
+            <field name="arch" type="xml">
+                <pivot string="Student">
+                    <field name="student_id" type="row"/>
+                    <field name="student_age" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Calendar view -->
+        <record model="ir.ui.view" id="student_record_calendar_view">
+            <field name="name">student.calendar.view</field>
+            <field name="model">student.record</field>
+            <field name="arch" type="xml">
+                <calendar string="Birth Dates" date_start="student_dob" hide_time="true" event_limit="5">
+                    <field name="student_id"/>
+                </calendar>
+            </field>
+        </record>
+
         <!-- Search view -->
          <record id="student_record_search_view" model="ir.ui.view">
             <field name="name">student.record.search.view</field>
@@ -131,7 +166,7 @@
             <field name="name">Students</field>
             <field name="res_model">student.record</field>
            <!--  <field name="view_type">form</field> -->
-            <field name="view_mode">tree,kanban,form</field>
+            <field name="view_mode">tree,kanban,form,graph,pivot,calendar</field>
             <field name="domain">[]</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">Create new student
