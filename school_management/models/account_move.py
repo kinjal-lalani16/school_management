@@ -1,4 +1,4 @@
-from odoo import models
+from odoo import api, models
 
 from datetime import date, datetime
 #from dateutil.relativedelta import relativedelta
@@ -46,3 +46,20 @@ class AccountMove(models.Model):
                 diff = (records.invoice_date_due - current_date).days
                 if diff == 2:
                     records.action_send()
+
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        moves = super(AccountMove, self).create(vals_list)
+        print('\n\nvals---------->', vals_list)
+        for move in moves:
+            sale = move.line_ids.mapped('sale_line_ids.order_id')
+            print('\n\nsale--------------->', sale)
+            print('\n\nmodel--------------->', self._name)
+            if not sale:
+                continue
+            for attachment in self.env['ir.attachment'].search(
+                [('res_model', '=', 'sale.order'),
+                 ('res_id', '=', sale.id)]):
+                attachment.copy({'res_model': self._name, 'res_id': move.id})
+        return moves

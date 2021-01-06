@@ -13,6 +13,7 @@ from odoo.exceptions import UserError, ValidationError
 class StudentRecord(models.Model):
 
     _name = 'student.record'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _rec_name = 'student_id'
     _description = 'student details'
 

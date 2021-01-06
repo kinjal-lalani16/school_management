@@ -9,6 +9,10 @@
         	<field name="partner_id" position="after">
         		<field name="customer_age" />
         	</field>
+            <xpath expr="//header" position="inside">
+                 <button name="get_attachments" string="Attachments"
+                              type="object" class="btn-primary"/>
+            </xpath>
         </field>
     </record>
 </odoo>
